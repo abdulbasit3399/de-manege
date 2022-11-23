@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <div class="col-xl-4 col-lg-6 col-sm-6">
+  {{--  <div class="col-xl-4 col-lg-6 col-sm-6">
     <div class="dashboard-w2 border-radius-5" data-bg="2ecc71" data-before="27ae60" style="background: #2ecc71; --before-bg-color:#27ae60;">
       <div class="details">
         <h2 class="amount mb-2 font-weight-bold">{{ collect($widget['total_users'])->where('status', 1)->count() }}</h2>
@@ -48,7 +48,7 @@
         <i class="fa fa-user-circle"></i>
       </div>
     </div>
-  </div>
+  </div>  --}}
 
   {{--  <div class="col-xl-4 col-lg-6 col-sm-6">
     <div class="dashboard-w2 border-radius-5" data-bg="e74c3c" data-before="c0392b" style="background: #e74c3c; --before-bg-color:#c0392b;">
@@ -195,7 +195,7 @@
 
 
 </div>  --}}
-<div class="row">
+{{--  <div class="row">
 
   <div class="col-xl-4 col-lg-4 col-md-6">
     <div class="card">
@@ -230,7 +230,7 @@
     </div>
   </div><!--card end-->
 
-</div>
+</div>  --}}
 @endsection
 
 @push('style-lib')
