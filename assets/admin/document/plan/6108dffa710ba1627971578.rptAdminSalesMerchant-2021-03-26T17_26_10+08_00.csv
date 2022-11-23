@@ -1,0 +1,3 @@
+Ref#,Merchant Name,Name,Contact#,Item,TransType,Payment Type,Total,Service Charge,Total W/Srv.Charge,Status,Platform,Date
+="3","test","Dhruvi Shah",="+6012358","Cheese Bread","Pickup","COD",="200.00",="0.00",="200.00","Pending","Web","Mar 24,2021 16:11:03",
+="1","test","Dhruvi Shah",="+6012358","Cheese Bread","Pickup","COD",="100.00",="0.00",="100.00","Successful","Web","Mar 24,2021 14:23:39",

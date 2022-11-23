@@ -1,0 +1,2 @@
+restaurant_name,restaurant_phone,contact_name,contact_phone,contact_email,country_code,street,city,state,post_code,status,latitude,lontitude,stores_open_starts,stores_open_ends,stores_open_pm_start,stores_open_pm_ends
+testmerchantd,4545787884554,test,45145454,merchatest@gmail.com,AF,street,city,state,4514,active,45.45456457,24.256444,10:00:00,13:00:00,14:00:00,20:00:00
