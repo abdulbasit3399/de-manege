@@ -46,11 +46,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
 
-            'host' => 'localhost',
+            'host' => '127.0.0.1',
             'port' => '3306',
-            'database' => 'tilesproject',
-            'username' => 'root',
-            'password' => '',
+            'database' => 'demane_demanege',
+            'username' => 'demane_demanege',
+            'password' => 'e/de7b68ed-a7',
 
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
