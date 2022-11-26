@@ -48,9 +48,9 @@ return [
 
             'host' => '127.0.0.1',
             'port' => '3306',
-            'database' => 'demane_demanege',
-            'username' => 'demane_demanege',
-            'password' => 'e/de7b68ed-a7',
+            'database' => 'tilesproject',
+            'username' => 'root',
+            'password' => '',
 
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
