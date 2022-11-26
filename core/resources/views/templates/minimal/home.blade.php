@@ -112,12 +112,12 @@
         <div class="row justify-content-center mt-4">
 
     @foreach ($tile as $tl)
-        <div class="card m-3" style="width: 15rem; border-radius: 8%;">
-        <img src="{{ asset('assets/images/gateway/' .$tl->image) }}" data-price="{{ $tl->price }}" data-name="{{ $tl->name }}" data-id="{{ $tl->id }}" data-toggle="modal" data-target="#depoModal" class="card-img-top identifyingClass" alt="...">
+        <div class="card m-3 p-3" style="width: 15rem; border-radius: 8%;background:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.2)),url({{ asset('assets/images/gateway/' .$tl->image) }});height: 203px;background-size: cover;background-position: center;">
+        {{-- <img src="{{ asset('assets/images/gateway/' .$tl->image) }}" data-price="{{ $tl->price }}" data-name="{{ $tl->name }}" data-id="{{ $tl->id }}" data-toggle="modal" data-target="#depoModal" class="card-img-top identifyingClass" alt="..."> --}}
 
-        <div class="text-start p-2" style="margin-top:-80px">
-            <h5 class="card-title" name="price" id="price">${{ $tl->price }}</h5>
-            <h6 class="card-subtitle text-muted " id="name">{{ $tl->name }}</h6>
+        <div class="text-start p-2" style="height: 100%;">
+            <h6 class="card-subtitle text-white " id="name">{{ $tl->name }}</h6>
+            <p class="card-title text-white" name="price" id="price" style="position: absolute;bottom: 0;background: #1f233a9e;border-radius: 8px;border: 1px solid #358f79;width: 50px;">&nbsp;$&nbsp;{{ $tl->price }}</p>
         </div>
         {{--  <p class="card-text">{{ $tl->description }}</p>  --}}
         {{--  <div class="text-center">
@@ -230,7 +230,7 @@
 
 
             <div class="modal-footer">
-                <button type="submit" class="btn btn-success" >@lang('Go Back')</button>
+                <button type="submit" class="btn btn-success" >@lang('Buy')</button>
             </div>
           </form>
           @endauth

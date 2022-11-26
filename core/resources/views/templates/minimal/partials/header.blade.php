@@ -27,9 +27,9 @@
                             @endforeach
                         </li>
                     </ul>
-                    <p class="mail">
+                    {{-- <p class="mail">
                         <i class="far fa-envelope"></i>{{@$contact->data_values->email_address}}
-                    </p>
+                    </p> --}}
                 </div>
                 <div class="right-side">
                     <div class="form-group">
