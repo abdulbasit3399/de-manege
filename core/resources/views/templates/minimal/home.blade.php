@@ -70,8 +70,8 @@
     @if($bannerCaption)
     <!-- ========Banner-Section Starts Here ========-->
     <section class="banner-section">
-        <div class="banner-shape02"></div>
-        <div class="banner-shape03"></div>
+        <div class=""></div>
+        <div class=""></div>
         {{--  <div class="banner-shape01">
              <img src="{{asset($activeTemplateTrue.'images/animation/banner-shape.png')}}" alt="banner" style="display:none;">
         </div>
@@ -112,7 +112,7 @@
         <div class="row justify-content-center mt-4">
 
     @foreach ($tile as $tl)
-        <div class="card m-3 p-3" style="width: 15rem; border-radius: 8%;background:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.2)),url({{ asset('assets/images/gateway/' .$tl->image) }});height: 203px;background-size: cover;background-position: center;">
+        <div class="card m-3 p-3" data-toggle="modal" data-target="#depoModal" style="width: 15rem; border-radius: 8%;background:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.2)),url({{ asset('assets/images/gateway/' .$tl->image) }});height: 203px;background-size: cover;background-position: center;">
         {{-- <img src="{{ asset('assets/images/gateway/' .$tl->image) }}" data-price="{{ $tl->price }}" data-name="{{ $tl->name }}" data-id="{{ $tl->id }}" data-toggle="modal" data-target="#depoModal" class="card-img-top identifyingClass" alt="..."> --}}
 
         <div class="text-start p-2" style="height: 100%;">

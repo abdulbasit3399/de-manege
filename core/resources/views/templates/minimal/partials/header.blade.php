@@ -35,7 +35,7 @@
                     <div class="form-group">
                         <i class="fas fa-globe"></i>
                         <select class="select-bar langSel">
-                           
+
                             @foreach($language as $item)
                                 <option value="{{$item->code}}" @if(session('lang') == $item->code) selected @endif><i
                                         class="flag-icon flag-icon-es"></i>{{ __($item->name) }}</option>
@@ -59,11 +59,11 @@
                 <div class="logo">
                     <a href="{{url('/')}}">
                         <img src="{{get_image(config('constants.logoIcon.path') .'/logo.png')}}" alt="image">
-                        
+
                     </a>
 
                 </div>
-                <ul class="menu">
+                {{--  <ul class="menu">  --}}
 
                     {{-- <li><a href="{{route('home')}}">@lang('Home')</a></li>
                     <li><a href="{{route('home.plan')}}">@lang('Plan')</a></li>
@@ -74,7 +74,7 @@
                     <li><a href="{{route('home.contact')}}">@lang('Contact')</a></li>
                     --}}
 
-                    @auth
+                    {{--  @auth
                         <li>
                             @if(Request::routeIs('user*'))
                                 <a href="{{route('user.logout')}}" class="header-button bg-3">@lang('Logout')</a>
@@ -88,7 +88,7 @@
                             <a href="{{route('user.register')}}" class="header-button bg-3 m-0" style="">@lang('Sign Up')</a>
                         </li>
                     @endif
-                </ul>
+                </ul>  --}}
                 <div class="header-bar d-lg-none">
                     <span></span>
                     <span></span>

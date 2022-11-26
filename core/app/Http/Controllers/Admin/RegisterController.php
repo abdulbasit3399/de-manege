@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin;
 
 use App\GeneralSetting;
 use App\User;
@@ -37,15 +37,15 @@ class RegisterController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['guest']);
-        $this->middleware('regStatus')->except('registrationNotAllowed');
+        // $this->middleware(['guest']);
+        // $this->middleware('regStatus')->except('registrationNotAllowed');
     }
 
     public function showRegistrationForm($ref = null)
     {
-        $page_title = "Sign Up";
-        $country=Country::select('country_code','country_name')->get();
-        return view(activeTemplate() . 'user.auth.register', compact('page_title','country'));
+        $page_title = "Add User";
+        // $country=Country::select('country_code','country_name')->get();
+        return view('admin.users.add_user', compact('page_title'));
     }
 
     /**
@@ -77,17 +77,37 @@ class RegisterController extends Controller
         return $validate;
     }
 
+    public function registerr(Request $request)
+    {
+
+        $this->validate($request, [
+            'password' => 'max:4',
+         ]);
+         $user = User::create([
+
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+
+            'username' => $request->username,
+            'password' => Hash::make('password'),
+
+
+        ]);
+
+        dd($request->all());
+    }
+
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
 
-        if(isset($request->captcha)){
-            if(!captchaVerify($request->captcha, $request->captcha_secret)){
-                $notify[] = ['error',"Invalid Captcha"];
-                return back()->withNotify($notify)->withInput();
-            }
-        }
-        
+        // if(isset($request->captcha)){
+        //     if(!captchaVerify($request->captcha, $request->captcha_secret)){
+        //         $notify[] = ['error',"Invalid Captcha"];
+        //         return back()->withNotify($notify)->withInput();
+        //     }
+        // }
+
 
         event(new Registered($user = $this->create($request->all())));
 
@@ -173,4 +193,7 @@ class RegisterController extends Controller
     {
         return redirect()->route('user.home');
     }
+
+
+
 }
