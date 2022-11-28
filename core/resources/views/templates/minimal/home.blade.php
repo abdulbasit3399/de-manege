@@ -1,66 +1,33 @@
-<style>
-.total .col-md-6:nth-child(odd){
-    padding-right:0px;
-}
-</style>
-
 @extends($activeTemplate .'layouts.master')
-@section('style')
+@push('style')
 
-
-/*  <style>
-    .card {
-        border: none;
-        border-radius: 10px
-    }
-
-    .c-details span {
-        font-weight: 300;
-        font-size: 13px
-    }
-
-    .icon {
-        width: 50px;
-        height: 50px;
-        background-color: #eee;
-        border-radius: 15px;
+<link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-pincode-input.css') }}"/>
+<style>
+    .pincode-input-container{
         display: flex;
+        justify-content: center;
         align-items: center;
-        justify-content: center;
-        font-size: 39px
     }
 
-    .badge span {
-        background-color: #fffbec;
+    .pincode-input-container .pincode-input-text {
+        text-align: center;
+        font-weight: 300;
+        border: none;
+        border-bottom: 1px solid;
+        font-size: 35px;
+        border-radius: 0px !important;
+        margin-right: 10px;
+    }
+    .login-area .login-form .frm-grp input {
+        padding:inherit;
+    }
+    .pincode-input-text, .form-control.pincode-input-text {
         width: 60px;
-        height: 25px;
-        padding-bottom: 3px;
-        border-radius: 5px;
-        display: flex;
-        color: #fed85d;
-        justify-content: center;
-        align-items: center
-    }
+        height: 60px !important;
 
-    .progress {
-        height: 10px;
-        border-radius: 10px
     }
-
-    .progress div {
-        background-color: red
-    }
-
-    .text1 {
-        font-size: 14px;
-        font-weight: 600
-    }
-
-    .text2 {
-        color: #a5aec0
-    }
-</style> */
-@endsection
+</style>
+@endpush
 
 @section('content')
 
@@ -69,9 +36,8 @@
     @endphp
     @if($bannerCaption)
     <!-- ========Banner-Section Starts Here ========-->
-    <section class="banner-section">
-        <div class=""></div>
-        <div class=""></div>
+    <section class="" style="margin-top: 130px">
+
         {{--  <div class="banner-shape01">
              <img src="{{asset($activeTemplateTrue.'images/animation/banner-shape.png')}}" alt="banner" style="display:none;">
         </div>
@@ -109,10 +75,10 @@
     @endif
     <div class="container">
 
-        <div class="row justify-content-center mt-4">
+    <div class="row justify-content-center mt-4">
 
-    @foreach ($tile as $tl)
-        <div class="card m-3 p-3" data-toggle="modal" data-target="#depoModal" style="width: 15rem; border-radius: 8%;background:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.2)),url({{ asset('assets/images/gateway/' .$tl->image) }});height: 203px;background-size: cover;background-position: center;">
+        @foreach ($tile as $tl)
+        <div class="card m-3 p-3 identifyingClass" data-price="{{ $tl->price }}" data-name="{{ $tl->name }}" data-id="{{ $tl->id }}" data-toggle="modal" data-target="#depoModal" style="width: 15rem; border-radius: 8%;background:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.2)),url({{ asset('assets/images/gateway/' .$tl->image) }});height: 203px;background-size: cover;background-position: center;">
         {{-- <img src="{{ asset('assets/images/gateway/' .$tl->image) }}" data-price="{{ $tl->price }}" data-name="{{ $tl->name }}" data-id="{{ $tl->id }}" data-toggle="modal" data-target="#depoModal" class="card-img-top identifyingClass" alt="..."> --}}
 
         <div class="text-start p-2" style="height: 100%;">
@@ -123,12 +89,11 @@
         {{--  <div class="text-center">
             <a href="#" class="btn mr-2 btn-primary" data-toggle="modal" data-target="#depoModal"><i class="fas fa-user"></i> Login</a>
         </div>  --}}
-            {{--  <a href="#" class="btn "><i class="fab fa-github"></i> Github</a>  --}}
         </div>
-    @endforeach
+        @endforeach
     </div>
 
-</div>
+    </div>
     {{--  <section>
         <div class="container mt-5 mb-3">
             <div class="row">
@@ -207,68 +172,84 @@
         @include($activeTemplate.'sections.'.$sec)
     @endforeach
     @endif  --}}
-    <!-- Modal -->
-    <div class="modal fade" id="depoModal" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content ">
-          <div class="modal-header">
+<!-- Modal -->
+<div class="modal fade" id="depoModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content ">
 
-            @guest
-            <h5 class="modal-title pt-2" id="ModalLabel">Sign In</h5>
-            @endguest
+        <form action="{{route('user.purchases')}}" method="post">
+        @csrf
+        <input type="hidden" name="user_id" value="{{ \Auth::id() }}">
 
-          </div>
-
-          @auth
-          <form action="{{route('user.purchases')}}" method="post">
-            @csrf
-            <input type="hidden" name="user_id" value="{{ \Auth::id() }}">
-
-            <input type="hidden" name="amount" id="amount" value="">
-            <input type="hidden" name="name" id="nam" value="">
-            <input type="hidden" name="tile_id" id="tile_id" value="">
-
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success" >@lang('Buy')</button>
-            </div>
-          </form>
-          @endauth
-
-          @guest
-          <form action="{{route('user.login')}}" method="post">
-            @csrf
-            <div class="modal-body">
-              <div class="form-group">
+        <input type="hidden" name="amount" id="amount" value="">
+        <input type="hidden" name="name" id="nam" value="">
+        <input type="hidden" name="tile_id" id="tile_id" value="">
+        <div class="modal-body">
+            <div class="form-group">
                 <div class="form-group">
-                 <strong>@lang('Select Username')</strong>
-                 <select id="" name="username" class="form-control select-country @error('username') is-invalid @enderror">
-                    <option value=""></option>
-                        @foreach($user as $ur)
-                        <option value="{{$ur->username}}">{{$ur->username}}</option>
-                        @endforeach
-                  </select>
-               </div>
-               <div class="form-group">
-                <strong>@lang('Password')</strong>
-                <input type="password" class="form-control" id="" name="password" value="" onkeyup="">
-              </div>
+                <strong>@lang('Select Username')</strong>
+                <select id="" name="username" class="form-control select-country @error('username') is-invalid @enderror">
+                    <option value="">Select</option>
+                    @foreach($user as $ur)
+                    <option value="{{$ur->username}}">{{$ur->username}}</option>
+                    @endforeach
+                </select>
+                </div>
+                <div class="form-group">
+                    <strong>@lang('Pin')</strong>
+                    <input name="password"  id="pincode-input" placeholder="@lang('Code')" class="form-control form-control-lg">
+
+                    {{--  <input type="password" class="form-control" name="password" value="" maxlength="4" pattern="\d{4}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>  --}}
+                </div>
+
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit"  class="btn btn-success " >@lang('Login')</button>
-          </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success" >@lang('Buy')</button>
+        </div>
         </form>
-          @endguest
 
-      </div>
+
+    {{--  <form action="{{route('user.login')}}" method="post">
+        @csrf
+        <div class="modal-body">
+            <div class="form-group">
+            <div class="form-group">
+                <strong>@lang('Select Username')</strong>
+                <select id="" name="username" class="form-control select-country @error('username') is-invalid @enderror">
+                <option value=""></option>
+                    @foreach($user as $ur)
+                    <option value="{{$ur->username}}">{{$ur->username}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+            <strong>@lang('Password')</strong>
+            <input type="password" class="form-control" id="" name="password" value="" onkeyup="">
+            </div>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit"  class="btn btn-success " >@lang('Login')</button>
+        </div>
+    </form>  --}}
+
     </div>
     </div>
-
+</div>
 
 @endsection
 
 @push('script')
+<script src="{{ asset('assets/admin/js/bootstrap-pincode-input.js') }}"></script>
+<script>
+    $('#pincode-input').pincodeInput({
+        inputs:4,
+        placeholder:"- - - -",
+        hidedigits:true
+    });
+</script>
 
 <script type="text/javascript">
     $(function () {

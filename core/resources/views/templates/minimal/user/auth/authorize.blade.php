@@ -197,5 +197,5 @@
         placeholder:"- - - - - -",
         hidedigits:false
     });
-</script>    
+</script>
 @endpush

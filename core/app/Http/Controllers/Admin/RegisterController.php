@@ -37,8 +37,8 @@ class RegisterController extends Controller
 
     public function __construct()
     {
-        // $this->middleware(['guest']);
-        // $this->middleware('regStatus')->except('registrationNotAllowed');
+        $this->middleware(['guest']);
+        $this->middleware('regStatus')->except('registrationNotAllowed');
     }
 
     public function showRegistrationForm($ref = null)
@@ -81,20 +81,33 @@ class RegisterController extends Controller
     {
 
         $this->validate($request, [
-            'password' => 'max:4',
+            'password' => [
+                'required',
+                'min:4',
+                'max:4',
+
+                'regex:/[0-9]/',
+
+            ]
          ]);
+    // dd($request->all());
          $user = User::create([
 
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
 
             'username' => $request->username,
-            'password' => Hash::make('password'),
-
+            'password' => Hash::make($request->password),
 
         ]);
+        UserWallet::create([
+            'user_id' => $user->id,
+            'balance' => 0,
+            'wallet_type' => 'deposit_wallet',
+        ]);
 
-        dd($request->all());
+        return redirect()->route('admin.users.all');
+        // dd($request->all());
     }
 
     public function register(Request $request)

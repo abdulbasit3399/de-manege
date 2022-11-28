@@ -19,20 +19,20 @@
         <div class="container">
             <div class="header-top-area">
                 <div class="left-side d-none d-sm-flex">
-                    <ul class="social">
+                    {{--  <ul class="social">
                         <li>
                             @foreach($socials as $data)
                                 <a href="{{@$data->data_values->url}}" target="_blank"
                                    title="{{@$data->data_values->title}}">@php echo   @$data->data_values->icon  @endphp</a>
                             @endforeach
                         </li>
-                    </ul>
+                    </ul>  --}}
                     {{-- <p class="mail">
                         <i class="far fa-envelope"></i>{{@$contact->data_values->email_address}}
                     </p> --}}
                 </div>
                 <div class="right-side">
-                    <div class="form-group">
+                    {{--  <div class="form-group">
                         <i class="fas fa-globe"></i>
                         <select class="select-bar langSel">
 
@@ -41,7 +41,7 @@
                                         class="flag-icon flag-icon-es"></i>{{ __($item->name) }}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div>  --}}
                     @guest
                     <div class="account">
                         {{-- <a href="{{route('user.login')}}" class="text-white">
@@ -74,26 +74,25 @@
                     <li><a href="{{route('home.contact')}}">@lang('Contact')</a></li>
                     --}}
 
-                    {{--  @auth
-                        <li>
-                            @if(Request::routeIs('user*'))
-                                <a href="{{route('user.logout')}}" class="header-button bg-3">@lang('Logout')</a>
-                            @else
-                            <a href="{{route('user.home')}}" class="header-button bg-3">@lang('Dashboard')</a>
-                            @endif
-                        </li>
-                    @else
-                        <li><a href="{{route('user.login')}}">@lang('Login')</a></li>
-                        <li>
-                            <a href="{{route('user.register')}}" class="header-button bg-3 m-0" style="">@lang('Sign Up')</a>
-                        </li>
-                    @endif
-                </ul>  --}}
-                <div class="header-bar d-lg-none">
+                    @auth
+                    <div class="pull-right">
+                        {{--  <a href="{{route('user.home')}}" class="btn btn-primary bg-3">@lang('Dashboard')</a>  --}}
+
+                        <a href="{{route('user.logout')}}" class="btn btn-primary bg-3">@lang('Logout')</a>
+                    </div>
+                    @endauth
+                    @guest
+                    <div class="pull-right">
+
+                    <a href="{{route('user.login')}}" class="btn btn-primary bg-3 m-0">@lang('Login')</a>
+                    </div>
+                    @endguest
+                </ul>
+                {{--  <div class="header-bar d-lg-none">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </div>  --}}
             </div>
         </div>
     </div>

@@ -205,12 +205,12 @@ class ManageUsersController extends Controller
                 'trx' => $trx
             ]);
 
-            notify($user, 'BAL_ADD', [
-                'trx' => $trx,
-                'amount' => $amount,
-                'currency' => $general->cur_text,
-                'post_balance' => $userWallet->balance +0,
-            ]);
+            // notify($user, 'BAL_ADD', [
+            //     'trx' => $trx,
+            //     'amount' => $amount,
+            //     'currency' => $general->cur_text,
+            //     'post_balance' => $userWallet->balance +0,
+            // ]);
 
 
         } else {
@@ -234,12 +234,12 @@ class ManageUsersController extends Controller
                 'trx' => $trx
             ]);
 
-            notify($user, 'BAL_SUB', [
-                'trx' => $trx,
-                'amount' => $amount,
-                'currency' => $general->cur_text,
-                'post_balance' => $userWallet->balance +0,
-            ]);
+            // notify($user, 'BAL_SUB', [
+            //     'trx' => $trx,
+            //     'amount' => $amount,
+            //     'currency' => $general->cur_text,
+            //     'post_balance' => $userWallet->balance +0,
+            // ]);
 
 
             $notify[] = ['success', $general->cur_sym . $amount . ' has been subtracted from ' . $user->username . ' balance'];

@@ -137,12 +137,13 @@ Route::name('user.')->prefix('user')->group(function () {
 
             Route::get('referral', 'UserController@refMy')->name('referral');
             Route::post('/plans', 'UserController@buyPlan')->name('buy.plan');
-            Route::post('/purchases', 'UserController@purchases')->name('purchases');
             Route::post('/purchase/update', 'UserController@purchaseUpdate')->name('purchase.update');
 
 
         });
     });
+    Route::post('/purchases', 'UserController@purchases')->name('purchases');
+
 });
 
 

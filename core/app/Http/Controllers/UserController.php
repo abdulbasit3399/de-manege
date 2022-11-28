@@ -29,6 +29,9 @@ use Validator;
 use Image;
 use File;
 
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;
+
 class UserController extends Controller
 {
     public function home()
@@ -665,34 +668,54 @@ class UserController extends Controller
     {
         // dd($request->all());
         $request->validate([
+            'username' => 'required|min:0',
             'amount' => 'required|min:0',
+
 
         ]);
         $user = User::find(Auth::id());
         $gnl = GeneralSetting::first();
 
         $plan = Plan::where('id', $request->plan_id)->where('status', 1)->first();
-        if ($request->amount != null) {
-            $userWallet = UserWallet::where('user_id', Auth::id())->first();
+        $usr = User::where('username', $request->username)->first();
 
-            $new_balance = formatter_money($userWallet->balance + $request->amount);
-            $userWallet->balance = $new_balance;
-            $userWallet->save();
+        // dump($request->password);
+        // dump($usr->password);
+        // dd(Hash::check($request->password, $usr->password));
 
-            Purchase::create([
-                'user_id' => $request->user_id,
-                'tile_id' => $request->tile_id,
-                'name' => $request->name,
-                'amount' => $request->amount,
+        if (Hash::check($request->password, $usr->password)) {
 
-            ]);
-            $notify[] = ['success', 'Purchased Successfully!'];
-            return back()->withNotify($notify);
+        $userWallet = UserWallet::where('user_id', $usr->id)->first();
+
+
+        if($userWallet->balance > $request->amount){
+        $new_balance = formatter_money($userWallet->balance - $request->amount);
+        $userWallet->balance = $new_balance;
+        $userWallet->save();
+
+        Purchase::create([
+            'user_id' => $request->user_id,
+            'tile_id' => $request->tile_id,
+            'name' => $request->name,
+            'username' => $request->username,
+
+            'amount' => $request->amount,
+
+        ]);
+
+        // dd($request->all());
+        $notify[] = ['success', 'Purchased Successfully!'];
+        return back()->withNotify($notify);
+
+        }else{
+        $notify[] = ['error', 'Add Balance!'];
+        return back()->withNotify($notify);
         }
 
-        if ($request->amount == null) {
-            $notify[] = ['error', 'Purchase Again'];
-            return back()->withNotify($notify);
+        }else{
+            // dd('al');
+        $notify[] = ['error', 'Incorrect Password!'];
+        return back()->withNotify($notify);
         }
 
     }

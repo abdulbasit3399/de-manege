@@ -29,7 +29,7 @@
         </p>
         @endforeach
 
-        <p class="clearfix">
+        {{--  <p class="clearfix">
           <span class="float-left">Status</span>
           <span class="float-right text-muted">
             @switch($user->status)
@@ -38,14 +38,14 @@
             @break
             @case(0)
             <span class="badge badge-pill badge-danger">Banned</span>
-            @break                                                        
+            @break
             @endswitch
           </span>
-        </p>
+        </p>  --}}
       </div>
     </div>
 
-    <div class="card">
+    {{--  <div class="card">
       <div class="card-body text-center border-bottom">
         <h5 class="card-title mt-3">ACH TRANSFER Details</h5>
       </div>
@@ -86,22 +86,22 @@
           @switch(@$deposit->status)
           @case(2)
           <span class="badge badge-pill badge-danger">pending</span>
-          @break 
+          @break
           @case(1)
           <span class="badge badge-pill badge-success">success</span>
           @break
           @case(3)
           <span class="badge badge-pill badge-danger">cancel</span>
-          @break                                                        
+          @break
           @endswitch
         </span>
       </p>
 
     </div>
-  </div>
+    </div>  --}}
 
 </div>
-<div class="col-lg-9">       
+<div class="col-lg-9">
   <div class="card">
 
     <div class="row p-4">
@@ -123,7 +123,7 @@
         </a>
       </div>
     </div>
-    <div class="col-lg-3">
+    {{--  <div class="col-lg-3">
       <div class="card outline-orange">
         <div class="card-body">
           <div class="media align-items-center">
@@ -176,7 +176,7 @@
           <div class="card-footer btn btn-block btn-primary">View All</div>
         </a>
       </div>
-    </div>
+    </div>  --}}
 
     <div class="col-lg-3">
       <a class="text-white text-center btn-block" data-toggle="modal" href="#addSubModal">
@@ -185,7 +185,7 @@
         </div>
       </a>
     </div>
-    <div class="col-lg-3">
+    {{--  <div class="col-lg-3">
       <a href="{{ route('admin.users.login.history.single', $user->id) }}" class="text-white text-center btn-block">
         <div class="card outline-success bg-success">
           <div class="card-body">Login Logs</div>
@@ -205,7 +205,7 @@
           <div class="card-body">Referral Users</div>
         </div>
       </a>
-    </div>
+    </div>  --}}
   </div>
 
   <form action="{{ route('admin.users.update', $user->id) }}" method="POST">
@@ -240,7 +240,7 @@
           </div>
         </div>
       </div>
-      <div class="form-row">
+      {{--  <div class="form-row">
         <div class="col-md-6">
           <div class="form-group">
             <label>Level of familiarity with investing</label><br/>
@@ -326,7 +326,7 @@
           <p class="text-muted">2FA Verification</p>
           <input type="checkbox" data-width="100%" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Verified" data-off="Unverified" name="tv" @if($user->tv) checked @endif>
         </div>
-      </div>
+      </div>  --}}
     </div>
     <div class="card-footer">
       <div class="form-group row">
@@ -440,6 +440,6 @@
     console.log('{{ @$user->address->country }}');
     $("select[name=country]").val("{{ @$user->address->country }}");
   });
-  
+
 </script>
 @endpush

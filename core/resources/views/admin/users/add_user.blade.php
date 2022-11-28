@@ -14,23 +14,23 @@
             <div class="m-4">
 
                     <div class="form-group mt-3 mb-0">
-                    <label class="ml-3 form-control-placeholder" for="first_name">@lang('First Name')</label>
+                    <label class="form-control-placeholder" for="first_name">@lang('First Name')</label>
                     <input type="text" name="firstname" id="first_name" class="form-control" value="{{old('firstname')}}"  required>
                     </div>
 
                     <div class="form-group mt-3 mb-0">
-                    <label class="ml-3 form-control-placeholder" for="last_name">@lang('Last Name')</label>
-                    <input type="text" name="lastname" id="last_name" class="form-control"  required>
+                    <label class="form-control-placeholder" for="last_name">@lang('Last Name')</label>
+                    <input type="text" name="lastname" id="last_name" class="form-control" value="{{old('lastname')}}" required>
                     </div>
 
                     <div class="form-group mt-3 mb-0">
-                    <label class="ml-3 form-control-placeholder" for="username">@lang('Username')</label>
-                    <input type="text" name="username" id="username" class="form-control" required>
+                    <label class="form-control-placeholder" for="username">@lang('Username')</label>
+                    <input type="text" name="username" id="username" class="form-control" value="{{old('username')}}" required>
 
                     </div>
 
                     <div class="form-group mt-3 mb-0">
-                    <label class="ml-3 form-control-placeholder" for="password">@lang('Pin')</label>
+                    <label class="form-control-placeholder" for="password">@lang('Pin')</label>
                     <input type="password" name="password" id="password" class="form-control"  required>
                     <small>Note: Enter 4 Digit Pin.</small>
                 </div>

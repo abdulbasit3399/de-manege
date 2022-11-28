@@ -49,17 +49,15 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        // dd('hell');
-
 
         $this->validateLogin($request);
 
-        if(isset($request->captcha)){
-           if(!captchaVerify($request->captcha, $request->captcha_secret)){
-           $notify[] = ['error',"Invalid Captcha"];
-            return back()->withNotify($notify)->withInput();
-           }
-        }
+        // if(isset($request->captcha)){
+        //    if(!captchaVerify($request->captcha, $request->captcha_secret)){
+        //    $notify[] = ['error',"Invalid Captcha"];
+        //     return back()->withNotify($notify)->withInput();
+        //    }
+        // }
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
@@ -180,7 +178,7 @@ class LoginController extends Controller
 
         if ($exist) {
             Auth::login($exist);
-            return redirect()->route('user.home');
+            return redirect()->route('home');
         } else {
             $new = User::create([
                 'firstname' => $user->name,
@@ -197,7 +195,7 @@ class LoginController extends Controller
                 'tv' => 1,
             ]);
             Auth::login($new);
-            return redirect()->route('user.home');
+            return redirect()->route('home');
         }
     }
 
@@ -228,6 +226,6 @@ class LoginController extends Controller
         UserLogin::create($ul);
 
 
-        return redirect()->route('user.home');
+        return redirect()->route('home');
     }
 }

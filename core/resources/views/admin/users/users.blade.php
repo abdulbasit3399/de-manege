@@ -5,6 +5,9 @@
 
     <div class="col-lg-12">
         <div class="card">
+            <div class="card-header">
+                <a href="{{ route('admin.register') }}" class="btn btn-light pull-right">Add user</a>
+            </div>
             <div class="table-responsive table-responsive-xl">
                 <table class="table align-items-center table-light">
                     <thead>
@@ -48,7 +51,7 @@
                     {{ $users->links() }}
                 </nav>
             </div>
-            
+
         </div>
     </div>
 </div>
