@@ -27,7 +27,7 @@
       <div class="content-header-left col-md-4 col-12 mb-2">
         <h3 class="content-header-title">{{__($page_title)}}</h3>
       </div>
-      
+
     </div>
     <div class="content-body">
       <section class="row">
@@ -36,7 +36,7 @@
           <!-- What is-->
           <div id="what-is" class="card">
             <div class="card-header">
-              
+
             </div>
             <div class="card-content collapse show">
               <div class="card-body">
@@ -46,18 +46,18 @@
                       <thead class="thead-dark">
                         <tr>
                           <th scope="col">@lang('Transaction ID')</th>
-                          <th scope="col">@lang('Gateway')</th>
+                          {{--  <th scope="col">@lang('Gateway')</th>  --}}
                           <th scope="col">@lang('Amount')</th>
-                          <th scope="col">@lang('Account No')</th>
+                          {{--  <th scope="col">@lang('Account No')</th>
                           <th scope="col" style="min-width:110px;">@lang('Bank Name')</th>
                           <th scope="col" style="min-width:130px;">@lang('Bank Address')</th>
                           <th scope="col" style="min-width:130px;">@lang('Check Number')</th>
                           <th scope="col" style="min-width:150px;">@lang('Customer Name')</th>
-                          <th scope="col" style="min-width:160px;">@lang('Customer Address')</th>
+                          <th scope="col" style="min-width:160px;">@lang('Customer Address')</th>  --}}
                           <th scope="col"> @lang('Status')</th>
                           <th scope="col" style="min-width:120px;">@lang('Time')</th>
-                          <th scope="col"> @lang('MORE')</th>
-                          
+                          {{--  <th scope="col"> @lang('MORE')</th>  --}}
+
                         </tr>
                       </thead>
                       <tbody>
@@ -65,17 +65,17 @@
                         @foreach($logs as $k=>$data)
                         <tr>
                           <td data-label="#@lang('Transaction ID')">{{$data->trx}}</td>
-                          <td data-label="@lang('Gateway')">{{ $data->gateway->name   }}</td>
+                          {{--  <td data-label="@lang('Gateway')">{{ $data->gateway->name   }}</td>  --}}
                           <td data-label="@lang('Amount')">
                             <strong>{{formatter_money($data->amount)}} {{$general->cur_text}}</strong>
                           </td>
-                          <td data-label="@lang('Account Number')">{{ $data->account_number   }}</td>
+                          {{--  <td data-label="@lang('Account Number')">{{ $data->account_number   }}</td>
                           <td data-label="@lang('Bank Name')">{{ $data->bank_name   }}</td>
                           <td data-label="@lang('Bank Address')">{{ $data->bank_address   }}</td>
                           <td data-label="@lang('Bank Address')">{{ $data->check_no   }}</td>
                           <td data-label="@lang('Customer Full Name')">{{ $data->customer_full_name   }}</td>
                           <td data-label="@lang('Customer Address')">{{ $data->customer_address   }}</td>
-                          
+                            --}}
                           <td data-label="@lang('Status')">
                             @if($data->status == 1)
                             <span class="badge badge-success">@lang('Complete')</span>
@@ -98,7 +98,7 @@
                           @endphp
 
 
-                          <td data-label="@lang('Details')">
+                          {{--  <td data-label="@lang('Details')">
                             <a href="javascript:void(0)" class="btn btn-primary btn-sm approveBtn"
 
                             data-prove_img="@php echo $proveImg @endphp"
@@ -111,7 +111,7 @@
                             data-payable="{{ $data->final_amo}} {{ $data->method_currency }}">
                             <i class="ft-monitor"></i>
                           </a>
-                        </td>
+                        </td>  --}}
 
 
                       </tr>
@@ -133,7 +133,7 @@
 
           <!-- Kick start -->
 
-         
+
 
           <!-- Simple Card-->
         </div>

@@ -134,6 +134,8 @@ Route::name('user.')->group(function () {
             Route::get('interest/log', 'UserController@interestLog')->name('interest.log');
 
 
+
+
             Route::get('referral', 'UserController@refMy')->name('referral');
             Route::post('/plans', 'UserController@buyPlan')->name('buy.plan');
             Route::post('/purchase/update', 'UserController@purchaseUpdate')->name('purchase.update');
