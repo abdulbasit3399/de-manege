@@ -226,6 +226,6 @@ class LoginController extends Controller
         UserLogin::create($ul);
 
 
-        return redirect()->route('user.dashboard');
+        return redirect()->route('user.home');
     }
 }

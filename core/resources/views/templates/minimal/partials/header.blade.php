@@ -78,17 +78,16 @@
                     --}}
 
                     @auth
-                    <div class="pull-right desktop-only">
-                        {{--  <a href="{{route('user.home')}}" class="btn btn-primary bg-3">@lang('Dashboard')</a>  --}}
+                    {{-- <div class="pull-right desktop-only">
 
                         <a href="{{route('user.logout')}}" class="btn btn-primary bg-3">@lang('Logout')</a>
-                    </div>
+                    </div> --}}
                     @endauth
                     @guest
-                    <div class="pull-right">
+                    {{-- <div class="pull-right">
 
                     <a href="{{route('user.login')}}" class="btn btn-primary bg-3 m-0">@lang('Login')</a>
-                    </div>
+                    </div> --}}
                     @endguest
                 </ul>
                 {{--  <div class="header-bar d-lg-none">

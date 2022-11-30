@@ -2,7 +2,7 @@
 @push('style')
 
 <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-pincode-input.css') }}"/>
-<style>
+{{-- <style>
     .pincode-input-container{
         display: flex;
         justify-content: center;
@@ -13,7 +13,7 @@
         text-align: center;
         font-weight: 300;
         border: none;
-        border-bottom: 1px solid;
+/*        border-bottom: 1px solid;*/
         font-size: 35px;
         border-radius: 0px !important;
         margin-right: 10px;
@@ -26,7 +26,10 @@
         height: 60px !important;
 
     }
-</style>
+    .pincode-input-container.touch .touchwrapper .touchtable td{
+        border: none !important;
+    }
+</style> --}}
 @endpush
 
 @section('content')
@@ -187,9 +190,9 @@
         <div class="modal-body">
             <div class="form-group">
                 <div class="form-group">
-                <strong>@lang('Select Username')</strong>
-                <select id="" name="username" class="form-control select-country @error('username') is-invalid @enderror">
-                    <option value="">Select</option>
+                <strong>@lang('Selecteer Gebruikersnaam')</strong>
+                <select id="" name="username" class="form-control select-country @error('username') is-invalid @enderror" required>
+                    <option value="">Selecteer</option>
                     @foreach($user as $ur)
                     <option value="{{$ur->username}}">{{$ur->username}}</option>
                     @endforeach
@@ -197,7 +200,8 @@
                 </div>
                 <div class="form-group">
                     <strong>@lang('Pin')</strong>
-                    <input name="password"  id="pincode-input" placeholder="@lang('Code')" class="form-control form-control-lg">
+                    <br/>
+                    <input name="password"  required placeholder="@lang('Code')" class="form-control form-control-lg pincode-input">
 
                     {{--  <input type="password" class="form-control" name="password" value="" maxlength="4" pattern="\d{4}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>  --}}
                 </div>
@@ -206,7 +210,7 @@
         </div>
 
         <div class="modal-footer">
-            <button type="submit" class="btn btn-success" >@lang('Buy')</button>
+            <button type="submit" class="btn btn-success" >@lang('Kopen')</button>
         </div>
         </form>
 
@@ -244,7 +248,7 @@
 @push('script')
 <script src="{{ asset('assets/admin/js/bootstrap-pincode-input.js') }}"></script>
 <script>
-    $('#pincode-input').pincodeInput({
+    $('.pincode-input').pincodeInput({
         inputs:4,
         placeholder:"- - - -",
         hidedigits:true
