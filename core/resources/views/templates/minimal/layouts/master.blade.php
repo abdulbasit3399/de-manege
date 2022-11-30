@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $general->sitename($page_title) }}</title>
-    <link rel="icon" href="{{get_image(config('constants.logoIcon.path') .'/favicon.png')}}" type="image/x-icon">
+
+    <link rel="icon"  href="{{get_image(config('constants.logoIcon.path') .'/favicon.png')}}" type="image/x-icon">
+
     <link rel="shortcut icon" type="image/png" href="{{ get_image(config('constants.logoIcon.path') .'/favicon.png') }}"/>
     @include('partials.seo')
     <link rel="stylesheet" href="{{asset('assets/templates/minimal/css/bootstrap.min.css')}}">
@@ -38,7 +40,11 @@
 
           }
     </style>  --}}
+
+
+
     @stack('style')
+
 </head>
 <body>
 

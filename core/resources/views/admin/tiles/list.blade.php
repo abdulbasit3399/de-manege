@@ -7,9 +7,9 @@
                 <table class="table align-items-center table-light">
                     <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Naam</th>
+                            <th scope="col">Prijs</th>
+                            <th scope="col">Actie</th>
                         </tr>
                     </thead>
                     <tbody class="list">

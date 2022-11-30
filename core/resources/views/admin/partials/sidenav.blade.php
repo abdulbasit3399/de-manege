@@ -46,7 +46,7 @@
             <li class="nav-item {{ sidenav_active('admin.users*') }}">
                 <a data-default-url="{{ route('admin.users.all') }}" class="nav-link">
                     <span class="menu-icon"><i class="fa fa-users text-facebook"></i></span>
-                    <span class="menu-title">Manage Users</span>
+                    <span class="menu-title">Leden beheren</span>
                     @if($email_unverified_users_count > 0 || $sms_unverified_users_count > 0)
                         <span class="badge bg-orange border-radius-10"><i class="fa px-1 fa-exclamation"></i></span>
                     @endif
@@ -56,7 +56,7 @@
                     <li class="nav-item {{ sidenav_active('admin.users.all') }}">
                         <a class="nav-link" href="{{ route('admin.users.all') }}">
                             <span class="mr-2"><i class="fa fa-angle-right"></i></span>
-                            <span class="menu-title">All Users</span>
+                            <span class="menu-title">Lid toevoegen</span>
                         </a>
                     </li>
                     {{--  <li class="nav-item {{ sidenav_active('admin.users.active') }}">
@@ -147,7 +147,7 @@
             <li class="nav-item {{ sidenav_active('admin.tiles*') }}">
                 <a data-default-url="{{ route('admin.tiles.index') }}" class="nav-link">
                     <span class="menu-icon"><i class="fa fa-credit-card-alt text-facebook"></i></span>
-                    <span class="menu-title">Tiles</span>
+                    <span class="menu-title">Producten</span>
                     @if($pending_deposits_count > 0)
                         <span class="badge bg-orange border-radius-10"><i class="fa px-1 fa-exclamation"></i></span>
                     @endif
@@ -157,7 +157,7 @@
                     <li class="nav-item {{ sidenav_active('admin.tiles*') }}">
                         <a class="nav-link" href="{{ route('admin.tiles.index') }}">
                             <span class="mr-2"><i class="fa fa-angle-right"></i></span>
-                            <span class="menu-title">Tiles List</span>
+                            <span class="menu-title">Productenlijst</span>
                         </a>
                     </li>
 
@@ -167,7 +167,7 @@
             <li class="nav-item {{ sidenav_active('admin.deposit*') }}">
                 <a data-default-url="{{ route('admin.deposit.gateway.index') }}" class="nav-link">
                     <span class="menu-icon"><i class="fa fa-credit-card-alt text-facebook"></i></span>
-                    <span class="menu-title">Deposit System</span>
+                    <span class="menu-title">Opwaardeersysteem</span>
                     @if($pending_deposits_count > 0)
                         <span class="badge bg-orange border-radius-10"><i class="fa px-1 fa-exclamation"></i></span>
                     @endif
@@ -189,26 +189,26 @@
                     <li class="nav-item {{ sidenav_active('admin.deposit.pending') }}">
                         <a class="nav-link" href="{{ route('admin.deposit.pending') }}">
                             <span class="mr-2"><i class="fa fa-angle-right"></i></span>
-                            <span class="menu-title">Pending Deposits</span>
+                            <span class="menu-title">Opwaardering(en) in afwachting</span>
                             @if($pending_deposits_count) <span class="badge bg-blue border-radius-10">{{ $pending_deposits_count }}</span> @endif
                         </a>
                     </li>
                     <li class="nav-item {{ sidenav_active('admin.deposit.approved') }}">
                         <a class="nav-link" href="{{ route('admin.deposit.approved') }}">
                             <span class="mr-2"><i class="fa fa-angle-right"></i></span>
-                            <span class="menu-title">Approved Deposits</span>
+                            <span class="menu-title">Geaccepteerde opwaarderingens</span>
                         </a>
                     </li>
                     <li class="nav-item {{ sidenav_active('admin.deposit.rejected') }}">
                         <a class="nav-link" href="{{ route('admin.deposit.rejected') }}">
                             <span class="mr-2"><i class="fa fa-angle-right"></i></span>
-                            <span class="menu-title">Rejected Deposits</span>
+                            <span class="menu-title">Geweigerde opwaarderingens</span>
                         </a>
                     </li>
                     <li class="nav-item {{ sidenav_active('admin.deposit.list') }}">
                         <a class="nav-link" href="{{ route('admin.deposit.list') }}">
                             <span class="mr-2"><i class="fa fa-angle-right"></i></span>
-                            <span class="menu-title">All Deposits</span>
+                            <span class="menu-title">Alle opwaarderingen</span>
                         </a>
                     </li>
                 </ul>

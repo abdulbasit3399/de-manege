@@ -28,7 +28,7 @@
     <div class="dashboard-w2 border-radius-5" data-bg="34495e" data-before="2c3e50" style="background: #34495e; --before-bg-color:#2c3e50;">
       <div class="details">
         <h2 class="amount mb-2 font-weight-bold">{{ collect($widget['total_users'])->count() }}</h2>
-        <h6 class="mb-3">Total Users</h6>
+        <h6 class="mb-3">Aantal leden</h6>
         <a href="{{ route('admin.users.all') }}" class="btn btn-sm btn-neutral">View all</a>
       </div>
       <div class="icon">
@@ -67,7 +67,7 @@
     <div class="dashboard-w2 border-radius-5" data-bg="7d5fff" data-before="7158e2" style="background: #7d5fff; --before-bg-color:#7158e2;">
       <div class="details">
         <h3 class="amount mb-2 font-weight-bold">{{ $general->cur_sym }}{{ formatter_money($widget['user_balance'])}}</h3>
-        <h6 class="mb-3">User Balance</h6>
+        <h6 class="mb-3">Tegoed gebruikers</h6>
         <a href="{{ route('admin.users.withbalance') }}" class="btn btn-sm btn-neutral">View all</a>
       </div>
       <div class="icon">
@@ -112,7 +112,7 @@
     <div class="dashboard-w2 slice border-radius-5" data-bg="2ecc71" data-before="27ae60" style="background: #2ecc71; --before-bg-color:#27ae60;">
       <div class="details">
         <h2 class="amount mb-2 font-weight-bold">{{ formatter_money($widget['deposits']->total) }}</h2>
-        <h6 class="mb-3">Total Deposits</h6>
+        <h6 class="mb-3">Aantal opwaardering</h6>
         <a href="{{ route('admin.deposit.approved') }}" class="btn btn-sm btn-neutral">View all</a>
       </div>
       <div class="icon">
@@ -141,7 +141,7 @@
     <div class="dashboard-w2 slice border-radius-5" data-bg="34495e" data-before="2c3e50" style="background: #34495e; --before-bg-color:#2c3e50;">
             <div class="details">
                 <h3 class="amount mb-2 font-weight-bold">{{ $general->cur_sym }}{{ formatter_money($widget['deposits']->total_amount) }}</h3>
-                <h6 class="mb-3">Total Deposit Amount</h6>
+                <h6 class="mb-3">Totaal opwaardeer bedrag</h6>
                 <a href="{{ route('admin.deposit.approved') }}" class="btn btn-sm btn-neutral">View all</a>
             </div>
             <div class="icon">

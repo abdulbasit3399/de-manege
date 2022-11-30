@@ -1,6 +1,9 @@
 <style>
-
-
+    @media screen and (max-width: 576px) and (min-width: 500px) {
+        .desktop-only {
+          display: none !important;
+      }
+    }
 </style>
 <div class="preloader">
     <div class="preloader-inner">
@@ -74,13 +77,13 @@
                     <li><a href="{{route('home.contact')}}">@lang('Contact')</a></li>
                     --}}
 
-                    @auth
-                    <div class="pull-right">
+                    {{--  @auth
+                    <div class="pull-right desktop-only">  --}}
                         {{--  <a href="{{route('user.home')}}" class="btn btn-primary bg-3">@lang('Dashboard')</a>  --}}
 
-                        <a href="{{route('user.logout')}}" class="btn btn-primary bg-3">@lang('Logout')</a>
+                        {{--  <a href="{{route('user.logout')}}" class="btn btn-primary bg-3">@lang('Logout')</a>
                     </div>
-                    @endauth
+                    @endauth  --}}
                     @guest
                     <div class="pull-right">
 

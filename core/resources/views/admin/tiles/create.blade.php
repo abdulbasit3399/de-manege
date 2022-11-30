@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-block">Save Tile</button>
+                    <button type="submit" class="btn btn-primary btn-block">Product opslaan</button>
                 </div>
             </form>
         </div>

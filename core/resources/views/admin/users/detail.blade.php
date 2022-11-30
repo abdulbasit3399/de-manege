@@ -10,7 +10,7 @@
       </div>
       <div class="card-body">
         <p class="clearfix">
-          <span class="float-left">Username</span>
+          <span class="float-left">Gebruikersnaam</span>
           <span class="float-right font-weight-bold"><a href="{{ route('admin.users.detail', $user->id) }}">{{ $user->username }}</a></span>
         </p>
         <p class="clearfix">
@@ -214,13 +214,13 @@
       <div class="form-row">
         <div class="col-md-6">
           <div class="form-group">
-            <label>First Name <span class="text-danger">*</span></label>
+            <label>Voornaam <span class="text-danger">*</span></label>
             <input class="form-control" type="text" name="firstname" value="{{ $user->firstname }}" required>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <label>Last Name <span class="text-danger">*</span></label>
+            <label>Achernaam <span class="text-danger">*</span></label>
             <input class="form-control" type="text" name="lastname" value="{{ $user->lastname }}" required>
           </div>
         </div>

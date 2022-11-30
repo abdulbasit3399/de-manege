@@ -5,22 +5,22 @@
 
         <div class="col-lg-12">
             <div class="card">
-                
+
                 <div class="table-responsive table-responsive-xl">
                     <table class="table align-items-center table-light">
                         <thead>
                             <tr>
-                                <th scope="col">Date</th>
+                                <th scope="col">Datum</th>
                                 <th scope="col">Trx Number</th>
-                                <th scope="col">Username</th>
+                                <th scope="col">Gebruikersnaam</th>
                                 <th scope="col">Method</th>
                                 <th scope="col">Amount</th>
-                                <th scope="col">Charge</th>
+                                <th scope="col">Bedrag</th>
                                 <th scope="col">After Charge</th>
                                 <th scope="col">Rate</th>
                                 <th scope="col">Payable</th>
                                 @if(request()->routeIs('admin.deposit.pending') )
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Actie</th>
 
                                 @elseif(request()->routeIs('admin.deposit.list') || request()->routeIs('admin.deposit.search') || request()->routeIs('admin.users.deposits'))
                                     <th scope="col">Status</th>
@@ -48,7 +48,7 @@
                                     @endphp
 
                                     <td>
-                                        <button class="btn btn-success approveBtn"  data-prove_img="@php echo $proveImg @endphp" 
+                                        <button class="btn btn-success approveBtn"  data-prove_img="@php echo $proveImg @endphp"
                                         {{$deposit->bank_name ? 'data-bank_name='.$deposit->bank_name : ''}}
                                         {{$deposit->check_no ? 'data-check_no='.$deposit->check_no : ''}}
                                         {{$deposit->account_number ? 'data-account_number='.$deposit->account_number : ''}}
@@ -96,7 +96,7 @@
         </div>
     </div>
 
-    
+
 {{-- APPROVE MODAL --}}
 <div id="approveModal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

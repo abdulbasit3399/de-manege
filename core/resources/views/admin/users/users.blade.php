@@ -6,17 +6,17 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('admin.register') }}" class="btn btn-light pull-right">Add user</a>
+                <a href="{{ route('admin.register') }}" class="btn btn-light pull-right">Lid toevoegen</a>
             </div>
             <div class="table-responsive table-responsive-xl">
                 <table class="table align-items-center table-light">
                     <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Username</th>
+                            <th scope="col">Naam</th>
+                            <th scope="col">Gebruikersnaam</th>
                             <th scope="col">Email</th>
                             <th scope="col">Phone</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Actie</th>
                         </tr>
                     </thead>
                     <tbody class="list">

@@ -65,7 +65,7 @@
                     <img src="{{asset($activeTemplateTrue.'images/account/sign-in.png')}}" alt="account">
                 </div>
                 <div class="account--content">
-                    <h4 class="title">@lang('Sign in your account')</h4>
+                    <h4 class="title">@lang('Log in op je account')</h4>
                     <form action="{{ route('user.login') }}" method="POST" class="account-form"  onsubmit="return submitUserForm();">
                         @csrf
                         <div class="form-group">
@@ -73,7 +73,7 @@
                                 <i class="fas fa-user-circle"></i>
                             </label>
                             <input type="text" id="exampleInputUsername" name="username" value="{{old('username')}}"
-                                   class="form-control" placeholder="@lang('Username')">
+                                   class="form-control" placeholder="@lang('Gebruikersnaam')">
                         </div>
 
                         <div class="form-group">
@@ -81,7 +81,7 @@
                                 <i class="fas fa-unlock"></i>
                             </label>
                             <input type="password" name="password" value="{{old('password')}}" class="form-control"
-                                   placeholder="@lang('Password')">
+                                   placeholder="@lang('Wachtwoord')">
 
                         </div>
 

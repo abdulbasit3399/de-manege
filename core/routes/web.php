@@ -62,10 +62,11 @@ Route::prefix('document')->group(function () {
 });
 
 
-Route::name('user.')->prefix('user')->group(function () {
 
-    Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
-    Route::post('/login', 'Auth\LoginController@login');
+Route::name('user.')->group(function () {
+
+    Route::get('/inloggen', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('/inloggen', 'Auth\LoginController@login');
     Route::get('logout', 'Auth\LoginController@logoutGet')->name('logout');
 
     Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')->name('social.login');
@@ -131,8 +132,6 @@ Route::name('user.')->prefix('user')->group(function () {
             // Transaction
             Route::get('transactions', 'UserController@transactions')->name('transactions');
             Route::get('interest/log', 'UserController@interestLog')->name('interest.log');
-
-
 
 
             Route::get('referral', 'UserController@refMy')->name('referral');

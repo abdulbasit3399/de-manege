@@ -1,6 +1,6 @@
 <div class="navbar-menu-wrapper d-flex flex-row align-items-center bg-primary">
     <button class="navbar-toggler" type="button"> <i class="fa fa-ellipsis-v"></i></button>
-    <div class="navbar-search ml-lg-4">
+    {{--  <div class="navbar-search ml-lg-4">
         <form class="navbar-search-form" onsubmit="return false;">
         <div class="input-group align-items-center">
             <div class="search-icon"><span class="fa fa-search"></span></div>
@@ -10,7 +10,7 @@
             <ul class="navbar_search_result"></ul>
         </div>
         </form>
-    </div>
+    </div>  --}}
 
     <ul class="navbar-nav ml-auto flex-row">
         <li class="nav-item dropdown">
@@ -18,9 +18,9 @@
                 <img src="{{ get_image(config('constants.admin.profile.path') .'/'. auth()->guard('admin')->user()->image) }}" alt="user-image">
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userProfileDropdown">
-                <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="fa fa-user"></i> Profile</a>
+                <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="fa fa-user"></i>Profiel</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ route('admin.logout') }}"><i class="fa fa-sign-out"></i>Logout</a>
+                <a class="dropdown-item" href="{{ route('admin.logout') }}"><i class="fa fa-sign-out"></i>Uitloggen</a>
             </div>
         </li>
     </ul>
