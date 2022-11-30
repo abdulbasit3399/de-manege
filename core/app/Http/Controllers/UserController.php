@@ -704,17 +704,17 @@ class UserController extends Controller
         ]);
 
         // dd($request->all());
-        $notify[] = ['success', 'Purchased Successfully!'];
+        $notify[] = ['success', 'Je aankoop is gelukt!'];
         return back()->withNotify($notify);
 
         }else{
-        $notify[] = ['error', 'Add Balance!'];
+        $notify[] = ['error', 'Opwaarderen'];
         return back()->withNotify($notify);
         }
 
         }else{
             // dd('al');
-        $notify[] = ['error', 'Incorrect Password!'];
+        $notify[] = ['error', 'Incorrect wachtwoord!'];
         return back()->withNotify($notify);
         }
 

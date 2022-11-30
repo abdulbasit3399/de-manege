@@ -46,7 +46,7 @@
                 <div class="card-text">
                   <div class="row mb-60-80">
                   <?php $if = 0;
-                    $textVar = "Cash Available";
+                    $textVar = "Balans beschikbaar";
                   ?>
                   @foreach($authWallets as $k=> $data)
                   <?php
