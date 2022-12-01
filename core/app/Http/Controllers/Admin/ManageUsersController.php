@@ -14,7 +14,7 @@ class ManageUsersController extends Controller
 {
     public function allUsers()
     {
-        $page_title = 'Manage Users';
+        $page_title = 'Gebruikers beheren';
         $empty_message = 'No user found';
         $users = User::latest()->paginate(config('constants.table.default'));
         return view('admin.users.users', compact('page_title', 'empty_message', 'users'));
@@ -64,7 +64,7 @@ class ManageUsersController extends Controller
         $deposit = $user->deposits()->where('user_id',$id)->orderBy('id','desc')->first();
         $invests = $user->invests()->where('status',1)->sum('amount');
         $transactions = $user->transactions()->count();
-        $page_title = 'User Detail';
+        $page_title = 'Gebruikersdetail';
 
         return view('admin.users.detail', compact('page_title', 'user', 'withdrawals', 'deposits','deposit','transactions','invests'));
     }
@@ -142,7 +142,7 @@ class ManageUsersController extends Controller
             'tv'        => $request->tv ? 1 : 0,
         ]);
 
-        $notify[] = ['success', 'User detail has been updated'];
+        $notify[] = ['success', 'Gebruikersgegevens zijn bijgewerkt!'];
         return redirect()->route('admin.users.detail', $user->id)->withNotify($notify);
     }
 

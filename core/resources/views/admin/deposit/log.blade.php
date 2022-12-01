@@ -11,19 +11,19 @@
                         <thead>
                             <tr>
                                 <th scope="col">Datum</th>
-                                <th scope="col">Trx Number</th>
+                                {{--  <th scope="col">Trx Number</th>  --}}
                                 <th scope="col">Gebruikersnaam</th>
-                                <th scope="col">Method</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Bedrag</th>
-                                <th scope="col">After Charge</th>
-                                <th scope="col">Rate</th>
-                                <th scope="col">Payable</th>
+                                {{--  <th scope="col">Method</th>  --}}
+                                <th scope="col">Hoeveelheid</th>
+                                {{--  <th scope="col">Bedrag</th>  --}}
+                                {{--  <th scope="col">After Charge</th>  --}}
+                                {{--  <th scope="col">Rate</th>  --}}
+                                {{--  <th scope="col">Payable</th>  --}}
                                 @if(request()->routeIs('admin.deposit.pending') )
                                     <th scope="col">Actie</th>
 
                                 @elseif(request()->routeIs('admin.deposit.list') || request()->routeIs('admin.deposit.search') || request()->routeIs('admin.users.deposits'))
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Toestand</th>
                                 @endif
                             </tr>
                         </thead>
@@ -32,14 +32,14 @@
                                 @if(!$deposit->gateway) @endif
                                 <tr>
                                     <td>{{ show_datetime($deposit->created_at) }}</td>
-                                    <td class="font-weight-bold text-uppercase">{{ $deposit->trx }}</td>
+                                    {{--  <td class="font-weight-bold text-uppercase">{{ $deposit->trx }}</td>  --}}
                                     <td><a href="{{ route('admin.users.detail', $deposit->user->id) }}">{{ $deposit->user->username }}</a></td>
-                                    <td>{{ $deposit->gateway->name }}</td>
+                                    {{--  <td>{{ $deposit->gateway->name }}</td>  --}}
                                     <td class="font-weight-bold">{{ $deposit->amount +0 }} {{ $general->cur_text }}</td>
-                                    <td class="text-success">{{ $deposit->charge +0 }} {{ $general->cur_text }}</td>
-                                    <td> {{ $deposit->amount+$deposit->charge }}</td>
-                                    <td> {{ $deposit->rate +0 }}</td>
-                                    <td class="font-weight-bold">{{ formatter_money($deposit->final_amo) }} {{$deposit->method_currency}}</td>
+                                    {{--  <td class="text-success">{{ $deposit->charge +0 }} {{ $general->cur_text }}</td>  --}}
+                                    {{--  <td> {{ $deposit->amount+$deposit->charge }}</td>  --}}
+                                    {{--  <td> {{ $deposit->rate +0 }}</td>  --}}
+                                    {{--  <td class="font-weight-bold">{{ formatter_money($deposit->final_amo) }} {{$deposit->method_currency}}</td>  --}}
                                     @if(request()->routeIs('admin.deposit.pending'))
 
                                     @php
@@ -241,7 +241,7 @@
 @else
 <form action="{{ route('admin.deposit.search', $scope ?? str_replace('admin.deposit.', '', request()->route()->getName())) }}" method="GET" class="form-inline">
     <div class="input-group has_append">
-        <input type="text" name="search" class="form-control" placeholder="Deposit code/Username" value="{{ $search ?? '' }}">
+        <input type="text" name="search" class="form-control" placeholder="Stortingscode/gebruikersnaam" value="{{ $search ?? '' }}">
         <div class="input-group-append">
         <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
         </div>

@@ -43,7 +43,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm($ref = null)
     {
-        $page_title = "Add User";
+        $page_title = "Voeg gebruiker toe";
         // $country=Country::select('country_code','country_name')->get();
         return view('admin.users.add_user', compact('page_title'));
     }

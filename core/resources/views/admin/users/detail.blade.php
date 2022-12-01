@@ -17,10 +17,10 @@
           <span class="float-left">E-mail</span>
           <span class="float-right text-muted">{{ $user->email }}</span>
         </p>
-        <p class="clearfix">
+        {{--  <p class="clearfix">
           <span class="float-left">Phone</span>
           <span class="float-right text-muted">{{ $user->mobile ?: 'Not available'}}</span>
-        </p>
+        </p>  --}}
 
         @foreach($user->wallets as $wallet)
         <p class="clearfix">
@@ -119,7 +119,7 @@
           </div>
         </div>
         <a href="{{ route('admin.users.transactions', $user->id) }}" class="text-white text-center">
-          <div class="card-footer btn-block btn btn-warning">View All</div>
+          <div class="card-footer btn-block btn btn-warning">Bekijk alles</div>
         </a>
       </div>
     </div>
@@ -233,12 +233,12 @@
             <input class="form-control" type="email" name="email" value="{{ $user->email }}" required>
           </div>
         </div>
-        <div class="col-md-6">
+        {{--  <div class="col-md-6">
           <div class="form-group">
             <label>Phone </label>
             <input class="form-control" type="text" name="mobile" value="{{ $user->mobile }}">
           </div>
-        </div>
+        </div>  --}}
       </div>
       {{--  <div class="form-row">
         <div class="col-md-6">
@@ -331,7 +331,7 @@
     <div class="card-footer">
       <div class="form-group row">
         <div class="col-lg-12 text-center">
-          <input type="submit" class="btn btn-block btn-primary mt-2" value="Save Changes">
+          <input type="submit" class="btn btn-block btn-primary mt-2" value="Wijzigingen opslaan">
         </div>
       </div>
     </div>
@@ -345,7 +345,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Add / Subtract Balance</h5>
+        <h5 class="modal-title">Saldo optellen/aftrekken</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -355,11 +355,11 @@
         <div class="modal-body">
           <div class="form-row">
             <div class="form-group col-md-12">
-              <input type="checkbox" data-width="100%" data-height="44px" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Add Balance" data-off="Subtract Balance" name="act" checked>
+              <input type="checkbox" data-width="100%" data-height="44px" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Saldo toevoegen" data-off="Saldo aftrekken" name="act" checked>
             </div>
 
             <div class="form-group col-md-12">
-              <label>Select Wallet<span class="text-danger">*</span></label>
+              <label>Selecteer Portemonnee<span class="text-danger">*</span></label>
               <select name="wallet_id" class="form-control" required>
                 @foreach($user->wallets as $wallet)
                 <option value="{{$wallet->id}}">{{str_replace('_',' ',strtoupper($wallet->wallet_type))}}</option>
@@ -368,17 +368,17 @@
             </div>
 
             <div class="form-group col-md-12">
-              <label>Amount<span class="text-danger">*</span></label>
+              <label>Hoeveelheid<span class="text-danger">*</span></label>
               <div class="input-group has_append">
-                <input type="text" name="amount" class="form-control" placeholder="Please provide positive amount">
+                <input type="text" name="amount" class="form-control" placeholder="Gelieve een positief bedrag op te geven">
                 <div class="input-group-append"><div class="input-group-text">{{ $general->cur_sym }}</div></div>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-success">Send</button>
+          <button type="button" class="btn btn-dark" data-dismiss="modal">dichtbij</button>
+          <button type="submit" class="btn btn-success">Versturen</button>
         </div>
       </form>
     </div>
