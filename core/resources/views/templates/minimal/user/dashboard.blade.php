@@ -45,32 +45,32 @@
               <div class="card-body">
                 <div class="card-text">
                   <div class="row mb-60-80">
-                  <?php $if = 0;
-                    $textVar = "Balans beschikbaar";
-                  ?>
+                  {{--  <?php $if = 0;  --}}
+                    {{--  $textVar = "Balans beschikbaar";  --}}
+                  {{--  ?>  --}}
                   @foreach($authWallets as $k=> $data)
-                  <?php
+                  {{--  <?php
                   if($if == '1'){
                    $textVar = "Target Return";
                  }
-               ?>
+               ?>  --}}
                <div class="col-md-4">
                 <div class="card inner-card pull-up border-top-info border-top-3 rounded-0">
                   <div class="card-header">
-                    <h4 class="card-title">{{$textVar}}</h4>
+                    <h4 class="card-title">Balans beschikbaar</h4>
                   </div>
                   <div class="card-content collapse show">
                     <div class="card-body p-1">
                       <h4 class="font-large-1 text-bold-400">{{$general->cur_sym}}{{formatter_money($data->balance)}}
-                        @if($data->type == 'deposit_wallet')
+                        {{--  @if($data->type == 'deposit_wallet')  --}}
                         <a href="{{route('user.deposit.history')}}" class="float-right">
                           <i class="ft-users "></i>
                         </a>
-                        @elseif($data->type == 'interest_wallet')
+                        {{--  @elseif($data->type == 'interest_wallet')
                         <a href="{{route('user.referral')}}" class="float-right">
                           <i class="ft-users "></i>
-                        </a>
-                        @endif
+                        </a>  --}}
+                        {{--  @endif  --}}
                       </h4>
                     </div>
 
@@ -78,7 +78,7 @@
                 </div>
 
               </div>
-              <?php $if++; ?>
+              {{--  <?php $if++; ?>  --}}
               @endforeach
 
               {{--  <div class="col-md-4">
@@ -117,7 +117,7 @@
               <div class="col-md-4">
                 <div class="card inner-card pull-up border-top-info border-top-3 rounded-0">
                   <div class="card-header">
-                    <h4 class="card-title">@lang('Total Deposit')</h4>
+                    <h4 class="card-title">@lang('Totale aanbetaling')</h4>
                   </div>
                   <div class="card-content collapse show">
                     <div class="card-body p-1">
@@ -162,7 +162,7 @@
 
         <!-- What is-->
         <div id="what-is" class="card">
-            <h3 class="pt-1 pl-1">Purchases</h3>
+            <h3 class="pt-1 pl-1">Aankopen</h3>
           <div class="card-content collapse show">
             <div class="card-body">
               <div class="card-text">
@@ -171,10 +171,10 @@
                         <thead class="thead-dark">
                          <tr>
                           <th scope="col">@lang('ID')</th>
-                          <th scope="col">@lang('Name')</th>
-                          <th scope="col">@lang('Amount')</th>
+                          <th scope="col">@lang('Naam')</th>
+                          <th scope="col">@lang('Hoeveelheid')</th>
 
-                          <th scope="col">@lang('Date')</th>
+                          <th scope="col">@lang('Datum')</th>
                           {{--  <th scope="col">@lang('Actions')</th>  --}}
 
                         </tr>

@@ -50,12 +50,11 @@
         </div>
     </div>
 </div>
-
 @endsection
 
 
 @push('breadcrumb-plugins')
-<a href="{{ route('admin.deposit.manual.index') }}" class="btn btn-dark"><i class="fa fa-fw fa-backward"></i> Go Back </a>
+<a href="{{ route('admin.tiles.index') }}" class="btn btn-dark"><i class="fa fa-fw fa-backward"></i> Ga terug </a>
 @endpush
 
 @push('script')

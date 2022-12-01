@@ -13,7 +13,7 @@ class TilesController extends Controller
 {
     public function index()
     {
-        $page_title = 'Tiles List';
+        $page_title = 'Tegels lijst';
         $empty_message = 'No tile available.';
         $tiles = Tile::latest()->paginate(config('constants.table.default'));
         return view('admin.tiles.list', compact('page_title', 'empty_message', 'tiles'));
@@ -21,14 +21,14 @@ class TilesController extends Controller
 
     public function create()
     {
-        $page_title = 'Create Tile';
+        $page_title = 'Tegel maken';
         return view('admin.tiles.create', compact('page_title'));
     }
 
     public function edit($id)
     {
         $method = Tile::where('id', $id)->firstOrFail();
-        $page_title = 'Update Tile: '.$method->name;
+        $page_title = 'Tegel bijwerken: '.$method->name;
 
         return view('admin.tiles.edit', compact('page_title', 'method'));
     }

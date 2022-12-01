@@ -15,7 +15,7 @@
                             <th scope="col">Naam</th>
                             <th scope="col">Gebruikersnaam</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
+                            {{--  <th scope="col">Phone</th>  --}}
                             <th scope="col">Actie</th>
                         </tr>
                     </thead>
@@ -35,7 +35,7 @@
                             </td>
                             <td><a href="{{ route('admin.users.detail', $user->id) }}">{{ $user->username }}</a></td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->mobile }}</td>
+                            {{--  <td>{{ $user->mobile }}</td>  --}}
                             <td><a href="{{ route('admin.users.detail', $user->id) }}" class="btn btn-rounded btn-primary text-white"><i class="fa fa-fw fa-desktop"></i></a></td>
                         </tr>
                         @empty

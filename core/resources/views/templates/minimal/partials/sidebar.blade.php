@@ -41,13 +41,13 @@
         <li class=" nav-item @if(Request::routeIs('user.deposit') || Request::routeIs('user.manualDeposit.preview') ||  Request::routeIs('user.manualDeposit.confirm') || Request::routeIs('user.deposit.preview')  ) active @endif">
           <a href="{{route('user.deposit')}}">
             <i class="ft-download"></i>
-            <span class="menu-title" data-i18n="">@lang('Deposit Now')</span>
+            <span class="menu-title" data-i18n="">@lang('Stort nu')</span>
           </a>
         </li>
         <li class=" nav-item @if(Request::routeIs('user.deposit.history')) active @endif">
           <a href="{{route('user.deposit.history')}}">
             <i class="ft-download"></i>
-            <span class="menu-title" data-i18n="">@lang('Deposit History')</span>
+            <span class="menu-title" data-i18n="">@lang('Opwaardeer historie')</span>
           </a>
         </li>
         {{--  <li class=" nav-item @if(Request::routeIs('user.withdraw')) active @endif">
@@ -83,7 +83,7 @@
         <li class=" nav-item @if(Request::routeIs('user.change-password')) active @endif">
           <a href="{{route('user.change-password')}}">
             <i class="ft-align-justify"></i>
-            <span class="menu-title" data-i18n="">@lang('Change Password')</span>
+            <span class="menu-title" data-i18n="">@lang('Wachtwoord')</span>
           </a>
         </li>
         {{--  <li class=" nav-item @if(Request::routeIs('ticket')) active @endif">

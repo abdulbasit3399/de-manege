@@ -30,6 +30,15 @@
         border: none !important;
     }
 </style> --}}
+<style>
+    @media (max-width: 600px) {
+    .pincode-input-text, .form-control.pincode-input-text {
+
+        width: 35px;
+        float: none;
+    }
+}
+</style>
 @endpush
 
 @section('content')
@@ -201,7 +210,8 @@
                 <div class="form-group">
                     <strong>@lang('Pin')</strong>
                     <br/>
-                    <input name="password"  required placeholder="@lang('Code')" class="form-control form-control-lg pincode-input">
+
+                    <input name="password" required class="form-control pincode-input">
 
                     {{--  <input type="password" class="form-control" name="password" value="" maxlength="4" pattern="\d{4}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>  --}}
                 </div>

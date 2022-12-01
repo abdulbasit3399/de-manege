@@ -112,6 +112,9 @@ Route::name('user.')->group(function () {
 
 
             // Deposit
+            Route::post('deposit/insertt', 'Gateway\PaymentController@depositInsertt')->name('deposit.insertt');
+            Route::get('deposit/history', 'UserController@depositHistory')->name('deposit.history');
+
             Route::get('deposit', 'Gateway\PaymentController@deposit')->name('deposit');
             Route::post('deposit', 'Gateway\PaymentController@deposit')->name('deposit');
             Route::post('deposit/insert', 'Gateway\PaymentController@depositInsert')->name('deposit.insert');
@@ -119,7 +122,6 @@ Route::name('user.')->group(function () {
             Route::get('deposit/confirm', 'Gateway\PaymentController@depositConfirm')->name('deposit.confirm');
             Route::get('deposit/manual', 'Gateway\PaymentController@manualDepositConfirm')->name('deposit.manual.confirm');
             Route::post('deposit/manual', 'Gateway\PaymentController@manualDepositUpdate')->name('deposit.manual.update');
-            Route::get('deposit/history', 'UserController@depositHistory')->name('deposit.history');
 
             // Withdraw
             Route::get('/withdraw', 'UserController@withdrawMoney')->name('withdraw');
@@ -132,8 +134,6 @@ Route::name('user.')->group(function () {
             // Transaction
             Route::get('transactions', 'UserController@transactions')->name('transactions');
             Route::get('interest/log', 'UserController@interestLog')->name('interest.log');
-
-
 
 
             Route::get('referral', 'UserController@refMy')->name('referral');

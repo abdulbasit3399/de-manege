@@ -111,7 +111,7 @@
           <div class="media align-items-center">
             <div class="media-body text-left">
               <h4 class="mb-0 text-warning">{{ $transactions }}</h4>
-              <span class="text-warning">Total Transactions</span>
+              <span class="text-warning">Totaal Transacties</span>
             </div>
             <div class="align-self-center icon-lg">
               <i class="fa fa-exchange text-warning"></i>

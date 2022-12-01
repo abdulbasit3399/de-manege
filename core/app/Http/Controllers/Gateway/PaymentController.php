@@ -24,11 +24,52 @@ class PaymentController extends Controller
         $gatewayCurrency = GatewayCurrency::whereHas('method', function ($gate) {
             $gate->where('status', 1);
         })->with('method')->orderby('method_code')->get();
-        $page_title = 'Deposit Methods';
+        $page_title = 'Methodes van opwaarderen';
 
-        
         // return view('templates.new_minimal.user.payment.deposit', compact('gatewayCurrency', 'page_title'));
         return view(activeTemplate() . 'user.payment.deposit', compact('gatewayCurrency', 'page_title'));
+    }
+    public function depositInsertt(Request $request)
+    {
+        $request->validate([
+            'amount' => 'required|numeric|min:1',
+            'method_code' => 'required',
+            'currency' => 'required',
+        ]);
+
+        $user = auth()->user();
+
+        $now = \Carbon\Carbon::now();
+        if (session()->has('req_time') && $now->diffInSeconds(\Carbon\Carbon::parse(session('req_time'))) <= 2) {
+            $notify[] = ['error', 'Please wait a moment, processing your deposit'];
+            return redirect()->route('payment.preview')->withNotify($notify);
+        }
+        session()->put('req_time', $now);
+
+        $gate = GatewayCurrency::where('method_code', $request->method_code)->where('currency', $request->currency)->first();
+        $final_amo = formatter_money($request->amount);
+
+        $depo['user_id'] = $user->id;
+        $depo['method_code'] = $gate->method_code;
+        $depo['method_currency'] = strtoupper($gate->currency);
+        $depo['amount'] = $request->amount;
+        $depo['account_number'] = $request->account_number;
+        $depo['routing'] = $request->routing;
+        $depo['check_no'] = $request->check_no;
+        $depo['bank_name'] = $request->bank_name;
+        $depo['bank_address'] = $request->bank_address;
+        $depo['customer_full_name'] = $request->customer_full_name;
+        $depo['customer_address'] = $request->customer_address;
+        $depo['rate'] = $gate->rate;
+        $depo['final_amo'] = formatter_money($final_amo);
+        $depo['btc_amo'] = 0;
+        $depo['btc_wallet'] = "";
+        $depo['trx'] = getTrx();
+        $depo['try'] = 0;
+        $depo['status'] = 2;
+
+        $data = Deposit::create($depo);
+        return redirect()->route('user.deposit.history');
     }
 
     public function depositInsert(Request $request)
@@ -153,7 +194,7 @@ class PaymentController extends Controller
     {
         $gnl = GeneralSetting::first();
         $data = Deposit::where('trx', $trx)->first();
-        
+
         if ($data->status == 0) {
             $data['status'] = 1;
             $data->update();

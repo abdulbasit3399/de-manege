@@ -14,7 +14,7 @@ class DepositController extends Controller
 {
     public function deposit()
     {
-        $page_title = 'Deposit History';
+        $page_title = 'Stortingsgeschiedenis';
         $empty_message = 'No deposit history available.';
         $deposits = Deposit::with(['user', 'gateway'])->where('status','!=',0)->latest()->paginate(config('constants.table.default'));
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits'));
@@ -33,15 +33,15 @@ class DepositController extends Controller
         });
         switch ($scope) {
             case 'pending':
-                $page_title .= 'Pending Deposits Search';
+                $page_title .= 'Wachtende stortingen Search';
                 $deposits = $deposits->where('method_code', '>=', 1000)->where('status', 2);
                 break;
             case 'approved':
-                $page_title .= 'Approved Deposits Search';
+                $page_title .= 'Goedgekeurde stortingen Search';
                 $deposits = $deposits->where('method_code', '>=', 1000)->where('status', 1);
                 break;
             case 'rejected':
-                $page_title .= 'Rejected Deposits Search';
+                $page_title .= 'Geweigerde stortingen Search';
                 $deposits = $deposits->where('method_code', '>=', 1000)->where('status', 3);
                 break;
             case 'list':
@@ -56,7 +56,7 @@ class DepositController extends Controller
 
     public function pending()
     {
-        $page_title = 'Pending Deposits';
+        $page_title = 'Wachtende stortingen';
         $empty_message = 'No pending deposits.';
         //$deposits = Deposit::where('method_code', '>=', 1000)->where('status', 2)->with(['user', 'gateway'])->latest()->paginate(config('constants.table.default'));
         $deposits = Deposit::where('method_code', '>=', 100)->where('status', 2)->with(['user', 'gateway'])->latest()->paginate(config('constants.table.default'));
@@ -65,7 +65,7 @@ class DepositController extends Controller
 
     public function approved()
     {
-         $page_title = 'Approved Deposits';
+         $page_title = 'Goedgekeurde stortingen';
         $empty_message = 'No approved deposits.';
         $deposits = Deposit::where('status', 1)->with(['user', 'gateway'])->latest()->paginate(config('constants.table.default'));
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits'));
@@ -73,7 +73,7 @@ class DepositController extends Controller
 
     public function rejected()
     {
-         $page_title = 'Rejected Deposits';
+         $page_title = 'Geweigerde stortingen';
         $empty_message = 'No rejected deposits.';
         $deposits = Deposit::where('method_code', '>=', 1000)->where('status', 3)->with(['user', 'gateway'])->latest()->paginate(config('constants.table.default'));
         return view('admin.deposit.log', compact('page_title', 'empty_message', 'deposits'));

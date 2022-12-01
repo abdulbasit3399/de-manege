@@ -301,7 +301,7 @@ class UserController extends Controller
 
     public function depositHistory()
     {
-        $page_title = 'Deposit History';
+        $page_title = 'Stortingsgeschiedenis';
         $empty_message = 'No history found.';
          $logs = auth()->user()->deposits()->with(['gateway'])->latest()->paginate(config('constants.table.default'));
         // return view('templates.new_minimal.user.deposit_history', compact('page_title', 'empty_message', 'logs'));
@@ -838,7 +838,7 @@ class UserController extends Controller
 
     public function changePassword()
     {
-        $data['page_title'] = "CHANGE PASSWORD";
+        $data['page_title'] = "VERANDER WACHTWOORD";
         // return view('templates.new_minimal.user.password', $data);
         return view(activeTemplate() . 'user.password', $data);
     }

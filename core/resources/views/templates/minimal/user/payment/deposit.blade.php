@@ -6,7 +6,7 @@
   <div class="content-wrapper">
     <div class="content-wrapper-before"></div>
     <div class="content-header row">
-      <div class="content-header-left col-md-4 col-12 mb-2">
+      <div class="content-header-left col-12 mb-2">
         <h3 class="content-header-title">{{__($page_title)}}</h3>
       </div>
 
@@ -35,11 +35,11 @@
                         <thead>
                           <tr>
                             <th>#</th>
-                            <th>Payment Method</th>
-                            <th>Charge</th>
-                            <th>Limit</th>
-                            <th>Status</th>
-                            <th>Deposit</th>
+                            <th>Betalingswijze</th>
+                            {{--  <th>Charge</th>
+                            <th>Limit</th>  --}}
+                            <th>Toestand</th>
+                            <th>Borg</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -59,11 +59,11 @@
                                   </div>
                               </div>
                             </td>
-                            <td>
+                            {{--  <td>
                               {{formatter_money($data->fixed_charge, $data->method->crypto()).' '.$general->cur_text.' + '.formatter_money($data->percent_charge, $data->method->crypto()).' %'}}
                             </td>
                             <td>{{formatter_money($data->min_amount, $data->method->crypto()).' - '.formatter_money($data->max_amount, $data->method->crypto()).' '.$general->cur_text }}
-                            </td>
+                            </td>  --}}
                             <td><span class="badge bg-success">Active</span></td>
                             <td>
                               @if($data->method_code == 1002)
@@ -74,7 +74,7 @@
                                 data-fix_charge="{{formatter_money($data->fixed_charge, $data->method->crypto())}}"
                                 data-percent_charge="{{formatter_money($data->percent_charge, $data->method->crypto())}}"
                                 class=" btn btn-primary btn-custom2  deposit" data-toggle="modal" data-target="#mail_check">
-                              @lang('Deposit Now')</button>
+                              @lang('Stort nu')</button>
                               @elseif($data->method_code == 1003)
                               <button type="button"  data-id="{{$data->id}}" data-resource="{{$data}}"
                                 data-min_amount="{{formatter_money($data->min_amount, $data->method->crypto())}}"
@@ -83,7 +83,7 @@
                                 data-fix_charge="{{formatter_money($data->fixed_charge, $data->method->crypto())}}"
                                 data-percent_charge="{{formatter_money($data->percent_charge, $data->method->crypto())}}"
                                 class=" btn btn-primary btn-custom2  deposit" data-toggle="modal" data-target="#wireTransfer">
-                              @lang('Deposit Now')</button>
+                              @lang('Stort nu')</button>
                               @else
                               <button type="button"  data-id="{{$data->id}}" data-resource="{{$data}}"
                                 data-min_amount="{{formatter_money($data->min_amount, $data->method->crypto())}}"
@@ -92,7 +92,7 @@
                                 data-fix_charge="{{formatter_money($data->fixed_charge, $data->method->crypto())}}"
                                 data-percent_charge="{{formatter_money($data->percent_charge, $data->method->crypto())}}"
                                 class=" btn btn-primary btn-custom2  deposit" data-toggle="modal" data-target="#exampleModal1">
-                              @lang('Deposit Now')</button>
+                              @lang('Stort nu')</button>
                               @endif
                             </td>
                           </tr>
@@ -218,7 +218,7 @@
           <span aria-hidden="true">&times;</span>
         </a>
       </div>
-      <form action="{{route('user.deposit.insert')}}" method="post">
+      <form action="{{route('user.deposit.insertt')}}" method="post">
         @csrf
         <div class="modal-body">
           <p class="text-danger depositLimit"></p>
@@ -236,18 +236,18 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
+          {{--  <div class="form-group">
             <label>@lang('Enter Bank name'):</label>
             <div class="input-group">
               <input id="bank_name" type="text" class="form-control" name="bank_name" placeholder="Bank Name" required=""  value="">
             </div>
-          </div>
-          <div class="form-group">
+          </div>  --}}
+          {{--  <div class="form-group">
             <label>@lang('Enter Account Number'):</label>
             <div class="input-group">
               <input id="account_number" name="account_number"  type="number" class="form-control" placeholder="Account Number" required=""  value="">
             </div>
-          </div>
+          </div>  --}}
 
         </div>
         <div class="modal-footer">
@@ -348,10 +348,10 @@
       var fixCharge = $(this).data('fix_charge');
       var percentCharge = $(this).data('percent_charge');
 
-      var depositLimit = `@lang('Deposit Limit:') ${minAmount} - ${maxAmount}  ${baseSymbol}`;
+      {{--  var depositLimit = `@lang('Deposit Limit:') ${minAmount} - ${maxAmount}  ${baseSymbol}`;
       $('.depositLimit').text(depositLimit);
       var depositCharge = `@lang('Charge:') ${fixCharge} ${baseSymbol} + ${percentCharge} %`
-      $('.depositCharge').text(depositCharge);
+      $('.depositCharge').text(depositCharge);  --}}
       $('.method-name').text(`@lang('Payment By ') ${result.name}`);
       $('.currency-addon').text(baseSymbol);
 

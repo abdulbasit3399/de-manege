@@ -111,7 +111,7 @@
 @endsection
 
 @push('breadcrumb-plugins')
-<a class="btn btn-success" href="{{ route('admin.tiles.create') }}"><i class="fa fa-fw fa-plus"></i>Add New</a>
+<a class="btn btn-success" href="{{ route('admin.tiles.create') }}"><i class="fa fa-fw fa-plus"></i>Nieuw toevoegen</a>
 @endpush
 
 @push('script')

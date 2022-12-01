@@ -9,9 +9,9 @@
             </a>
           </li>
           <li class="d-none d-md-block">
-            <a class="nav-link" id="apps-navbar-links" href="{{route('home')}}">
+            {{--  <a class="nav-link" id="apps-navbar-links" href="{{route('home')}}">
               @lang('Home')
-            </a>
+            </a>  --}}
           </li>
           {{--  <li class="d-none d-md-block">
             <a class="nav-link" id="apps-navbar-links" href="{{route('home.plan')}}">
@@ -38,10 +38,10 @@
 
         </ul>
       <ul class="nav navbar-nav float-right">
-        <li class="dropdown dropdown-language nav-item">
+        {{--  <li class="dropdown dropdown-language nav-item">
           <a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-us"></i><span class="selected-language"></span></a>
 
-        </li>
+        </li>  --}}
         @auth
         <li class="dropdown dropdown-user nav-item">
           <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
@@ -58,12 +58,12 @@
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{route('user.edit-profile')}}">
-                <i class="ft-user"></i>@lang('Profile')
+                <i class="ft-user"></i>@lang('Profiel')
               </a>
 
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{route('user.logout')}}">
-                <i class="ft-power"></i> @lang('Logout')
+                <i class="ft-power"></i> @lang('Uitloggen')
               </a>
             </div>
           </div>

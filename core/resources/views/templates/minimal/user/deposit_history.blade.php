@@ -45,17 +45,17 @@
                     <table class="table table-striped">
                       <thead class="thead-dark">
                         <tr>
-                          <th scope="col">@lang('Transaction ID')</th>
+                          <th scope="col">@lang('Transactie ID')</th>
                           {{--  <th scope="col">@lang('Gateway')</th>  --}}
-                          <th scope="col">@lang('Amount')</th>
+                          <th scope="col">@lang('Hoeveelheid')</th>
                           {{--  <th scope="col">@lang('Account No')</th>
                           <th scope="col" style="min-width:110px;">@lang('Bank Name')</th>
                           <th scope="col" style="min-width:130px;">@lang('Bank Address')</th>
                           <th scope="col" style="min-width:130px;">@lang('Check Number')</th>
                           <th scope="col" style="min-width:150px;">@lang('Customer Name')</th>
                           <th scope="col" style="min-width:160px;">@lang('Customer Address')</th>  --}}
-                          <th scope="col"> @lang('Status')</th>
-                          <th scope="col" style="min-width:120px;">@lang('Time')</th>
+                          <th scope="col"> @lang('Toestand')</th>
+                          <th scope="col" style="min-width:120px;">@lang('Tijd')</th>
                           {{--  <th scope="col"> @lang('MORE')</th>  --}}
 
                         </tr>
