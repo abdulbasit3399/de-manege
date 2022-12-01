@@ -62,15 +62,15 @@
                       <?php //p($user->address->country); ?>
                       <div class="row">
                         <div class="form-group col-sm-6">
-                          <label for="InputFirstname" class="col-form-label">@lang('First Name:')</label>
+                          <label for="InputFirstname" class="col-form-label">@lang('Voornaam:')</label>
                           <input type="text" class="form-control form-control-lg" id="InputFirstname" name="firstname"
-                          placeholder="@lang('First Name')" value="{{$user->firstname}}" >
+                          placeholder="@lang('Voornaam')" value="{{$user->firstname}}" >
                         </div>
 
                         <div class="form-group col-sm-6">
-                          <label for="lastname" class="col-form-label">@lang('Last Name:')</label>
+                          <label for="lastname" class="col-form-label">@lang('Achternaam:')</label>
                           <input type="text" class="form-control form-control-lg" id="lastname" name="lastname"
-                          placeholder="@lang('Last Name')" value="{{$user->lastname}}">
+                          placeholder="@lang('Achternaam')" value="{{$user->lastname}}">
                         </div>
 
                       </div>
@@ -78,13 +78,13 @@
 
                       <div class="row">
                         <div class="form-group col-sm-6">
-                          <label for="email" class="col-form-label">@lang('E-mail Address:')</label>
-                          <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="@lang('E-mail Address')" value="{{$user->email}}" required="">
+                          <label for="email" class="col-form-label">@lang('E-mail:')</label>
+                          <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="@lang('E-mail')" value="{{$user->email}}" required="">
                         </div>
 
                         <div class="form-group col-sm-6">
                           <input type="hidden" id="track" name="country_code">
-                          <label for="phone" class="col-form-label">@lang('Mobile Number')</label>
+                          <label for="phone" class="col-form-label">@lang('Mobiel nummer')</label>
                           <input type="tel" class="form-control form-control-lg pranto-control" id="phone" name="mobile" value="{{$user->mobile}}" placeholder="@lang('Your Contact Number')" required>
                         </div>
                         <input type="hidden" name="country" id="country" class="form-control d-none" value="{{$user->address->country}}">
@@ -96,36 +96,36 @@
 
                       <div class="row">
                         <div class="form-group col-sm-6">
-                          <label for="address" class="col-form-label">@lang('Address:')</label>
+                          <label for="address" class="col-form-label">@lang('Adres:')</label>
                           <input type="text" class="form-control form-control-lg" id="address" name="address"
-                          placeholder="@lang('Address')" value="{{$user->address->address}}" required="">
+                          placeholder="@lang('Adres')" value="{{$user->address->address}}" required="">
                         </div>
                         <div class="form-group col-sm-6">
-                          <label for="state" class="col-form-label">@lang('State:')</label>
-                          <input type="text" class="form-control form-control-lg" id="state" name="state" placeholder="@lang('state')" value="{{$user->address->state}}" required="">
+                          <label for="state" class="col-form-label">@lang('Staat:')</label>
+                          <input type="text" class="form-control form-control-lg" id="state" name="state" placeholder="@lang('Staat')" value="{{$user->address->state}}" required="">
                         </div>
                       </div>
 
 
                       <div class="row">
                         <div class="form-group col-sm-6">
-                          <label for="zip" class="col-form-label">@lang('Zip Code:')</label>
-                          <input type="text" class="form-control form-control-lg" id="zip" name="zip" placeholder="@lang('Zip Code')" value="{{$user->address->zip}}" required="">
+                          <label for="zip" class="col-form-label">@lang('Postcode:')</label>
+                          <input type="text" class="form-control form-control-lg" id="zip" name="zip" placeholder="@lang('Postcode')" value="{{$user->address->zip}}" required="">
                         </div>
 
                         <div class="form-group col-sm-6">
-                          <label for="city" class="col-form-label">@lang('City:')</label>
+                          <label for="city" class="col-form-label">@lang('Stad:')</label>
                           <input type="text" class="form-control form-control-lg" id="city" name="city"
-                          placeholder="@lang('City')" value="{{$user->address->city}}" required="">
+                          placeholder="@lang('Stad')" value="{{$user->address->city}}" required="">
                         </div>
 
                       </div>
 
                       <div class="row">
                         <div class="form-group col-sm-6">
-                          <label for="country" class="col-form-label">@lang('Country:')</label>
+                          <label for="country" class="col-form-label">@lang('Land:')</label>
                           <select id="country" name="country" class="form-control form-control-lg">
-                            <option value="">@lang('Select Country')</option>
+                            <option value="">@lang('Selecteer land')</option>
                             @foreach($country as $c)
 
                             <option value="{{$c['country_code']}}"  <?= (isset($c['country_code']) && $c['country_code'] == $user->address->country)? 'selected="selected"':'' ?>> {{$c['country_name']}} </option>
@@ -151,12 +151,12 @@
 
                             <div class="img-input-div">
                               <span class="btn btn-info btn-file">
-                                <span class="fileinput-new "> @lang('Select image')</span>
-                                <span class="fileinput-exists"> @lang('Change')</span>
+                                <span class="fileinput-new "> @lang('Selecteer afbeelding')</span>
+                                <span class="fileinput-exists"> @lang('Wijziging')</span>
                                 <input type="file" name="image" accept="image/*">
                               </span>
                               <a href="#" class="btn btn-danger fileinput-exists"
-                              data-dismiss="fileinput"> @lang('Remove')</a>
+                              data-dismiss="fileinput"> @lang('Verwijderen')</a>
                             </div>
 
                             <code>@lang('Image size 800*800')</code>
@@ -168,7 +168,7 @@
 
                     <div class="form-group row">
                       <div class="col-sm-12 text-center">
-                        <button type="submit" class="btn btn-success custom-button bg-3">@lang('Update Profile')</button>
+                        <button type="submit" class="btn btn-success custom-button bg-3">@lang('Profiel bijwerken')</button>
                       </div>
                     </div>
                   </form>

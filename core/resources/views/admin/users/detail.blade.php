@@ -181,7 +181,7 @@
     <div class="col-lg-3">
       <a class="text-white text-center btn-block" data-toggle="modal" href="#addSubModal">
         <div class="card outline-primary">
-          <div class="card-body bg-primary">Add/Subtract Balance</div>
+          <div class="card-body bg-primary">Saldo optellen/aftrekken</div>
         </div>
       </a>
     </div>

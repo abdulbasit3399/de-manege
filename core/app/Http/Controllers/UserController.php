@@ -119,7 +119,7 @@ class UserController extends Controller
     }
     public function profile()
     {
-        $page_title = 'Profile';
+        $page_title = 'Profiel';
         return view(activeTemplate() . 'user.profile', compact('page_title'));
     }
 
@@ -143,7 +143,7 @@ class UserController extends Controller
                 $size = config('constants.user.profile.size');
                 $filename = upload_image($request->image, $path, $size, $filename);
             } catch (\Exception $exp) {
-                $notify[] = ['success', 'Image could not be uploaded'];
+                $notify[] = ['success', 'Afbeelding kon niet worden geüpload'];
                 return back()->withNotify($notify);
             }
         }
@@ -160,13 +160,13 @@ class UserController extends Controller
                 'country' => $request->country,
             ]
         ]);
-        $notify[] = ['success', 'Your profile has been updated'];
+        $notify[] = ['success', 'Uw profiel is bijgewerkt'];
         return back()->withNotify($notify);
     }
 
     public function passwordChange()
     {
-        $page_title = 'Password Change';
+        $page_title = 'Wachtwoord verandering';
         return view(activeTemplate() . 'user.password', compact('page_title'));
     }
 
@@ -178,13 +178,13 @@ class UserController extends Controller
         ]);
 
         if (!Hash::check($request->old_password, auth()->user()->password)) {
-            $notify[] = ['error', 'Your old password doesnt match'];
+            $notify[] = ['error', 'Uw oude wachtwoord komt niet overeen'];
             return back()->withNotify($notify);
         }
         auth()->user()->update([
             'password' => bcrypt($request->password)
         ]);
-        $notify[] = ['success', 'Your password has been updated'];
+        $notify[] = ['success', 'Uw wachtwoord is geüpdatet'];
         return back()->withNotify($notify);
     }
 
@@ -311,7 +311,7 @@ class UserController extends Controller
 
     public function transactions()
     {
-        $page_title = 'Transactions';
+        $page_title = 'Transacties';
         $logs = auth()->user()->transactions()->orderBy('id','desc')->paginate(config('constants.table.default'));
         $empty_message = 'No transaction history';
         // return view('templates.new_minimal.user.transactions', compact('page_title', 'logs', 'empty_message'));
@@ -611,10 +611,10 @@ class UserController extends Controller
                 $plan->save();
                 updateSharesPrice($plan->id);
 
-                $notify[] = ['success', 'Invested Successfully'];
+                $notify[] = ['success', 'Met succes geïnvesteerd'];
                 return redirect()->route('user.interest.log')->withNotify($notify);
             }
-            $notify[] = ['error', 'Invalid Amount'];
+            $notify[] = ['error', 'Ongeldige hoeveelheid'];
             return back()->withNotify($notify);
 
         } else {
@@ -653,11 +653,11 @@ class UserController extends Controller
                 $user->save();
                 updateSharesPrice($plan->id);
 
-                $notify[] = ['success', 'Package Purchased Successfully Complete'];
+                $notify[] = ['success', 'Pakket gekocht succesvol voltooid'];
                 return redirect()->route('user.interest.log')->withNotify($notify);
             }
 
-            $notify[] = ['error', 'Something Went Wrong'];
+            $notify[] = ['error', 'Er is iets fout gegaan'];
             return back()->withNotify($notify);
         }
 
@@ -714,7 +714,7 @@ class UserController extends Controller
 
         }else{
             // dd('al');
-        $notify[] = ['error', 'Incorrect wachtwoord!'];
+        $notify[] = ['error', 'Niet correct wachtwoord!'];
         return back()->withNotify($notify);
         }
 
@@ -771,7 +771,7 @@ class UserController extends Controller
 
     public function editProfile()
     {
-        $data['page_title'] = "Edit Profile";
+        $data['page_title'] = "Bewerk profiel";
         $data['user'] = User::findOrFail(Auth::id());
         $data['country']=Country::select('country_code','country_name')->get();
         $logs = auth()->user()->transactions()->orderBy('id','desc')->paginate(5);
@@ -832,7 +832,7 @@ class UserController extends Controller
             Image::make($image)->save($location);
         }
         $user->fill($in)->save();
-        $notify[] = ['success', 'Profile Updated successfully.'];
+        $notify[] = ['success', 'Profiel succesvol bijgewerkt.'];
         return back()->withNotify($notify);
     }
 
@@ -860,11 +860,11 @@ class UserController extends Controller
                 $user->password = $password;
                 $user->save();
 
-                $notify[] = ['success', 'Password Changes successfully.'];
+                $notify[] = ['success', 'Wachtwoord gewijzigd.'];
                 return back()->withNotify($notify);
 
             } else {
-                $notify[] = ['error', 'Current password not match.'];
+                $notify[] = ['error', 'Huidig ​​wachtwoord komt niet overeen.'];
                 return back()->withNotify($notify);
             }
 

@@ -145,7 +145,7 @@
             <input type="hidden" name="method_code" class="edit-method-code" value="">
           </div>
           <div class="form-group">
-            <label>@lang('Enter Amount'):</label>
+            <label>@lang('Voer een bedrag in'):</label>
             <div class="input-group">
               <input id="amount" type="text" class="form-control form-control-lg" onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')" name="amount" placeholder="0.00" required=""  value="{{old('amount')}}">
               <div class="input-group-prepend">
@@ -183,7 +183,7 @@
             <input type="hidden" name="method_code" class="edit-method-code" value="">
           </div>
           <div class="form-group">
-            <label>@lang('Enter Amount'):</label>
+            <label>@lang('Voer een bedrag in'):</label>
             <div class="input-group">
               <input id="amount" type="text" class="form-control form-control-lg" onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')" name="amount" placeholder="0.00" required=""  value="{{old('amount')}}">
               <div class="input-group-prepend">
@@ -228,7 +228,7 @@
             <input type="hidden" name="method_code" class="edit-method-code" value="">
           </div>
           <div class="form-group">
-            <label>@lang('Enter Amount'):</label>
+            <label>@lang('Voer een bedrag in'):</label>
             <div class="input-group">
               <input id="amount" type="text" class="form-control form-control-lg" onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')" name="amount" placeholder="0.00" required=""  value="{{old('amount')}}">
               <div class="input-group-prepend">
@@ -251,8 +251,8 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Close')</button>
-          <button type="submit" class="btn btn-primary">@lang('Confirm')</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Dichtbij')</button>
+          <button type="submit" class="btn btn-primary">@lang('Bevestigen')</button>
         </div>
       </form>
     </div>
@@ -278,7 +278,7 @@
             <input type="hidden" name="method_code" class="edit-method-code" value="">
           </div>
           <div class="form-group">
-            <label>@lang('Enter Amount'):</label>
+            <label>@lang('Voer een bedrag in'):</label>
             <div class="input-group">
               <input id="amount" type="text" class="form-control form-control-lg" onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')" name="amount" placeholder="0.00" required=""  value="{{old('amount')}}">
               <div class="input-group-prepend">

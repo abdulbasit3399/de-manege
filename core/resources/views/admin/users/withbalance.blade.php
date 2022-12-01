@@ -11,8 +11,8 @@
                         <tr>
                             <th scope="col">Naam</th>
                             <th scope="col">Gebruikersnaam</th>
-                            <th scope="col">Balance Type</th>
-                            <th scope="col">Amount</th>
+                            <th scope="col">Saldotype</th>
+                            <th scope="col">Hoeveelheid</th>
                             <th scope="col">Profiel</th>
                         </tr>
                     </thead>

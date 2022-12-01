@@ -102,7 +102,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Approve Deposit Confirmation</h5>
+                <h5 class="modal-title">Aanbetalingsbevestiging goedkeuren</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -112,7 +112,7 @@
                 <input type="hidden" name="id">
                 <div class="modal-body">
 
-                    <p>Are you sure to <span class="font-weight-bold">approve</span> <span class="font-weight-bold withdraw-amount text-success"></span> deposit of <span class="font-weight-bold withdraw-user"></span>?</p>
+                    <p>Weet je het zeker <span class="font-weight-bold">goedkeuren</span> <span class="font-weight-bold withdraw-amount text-success"></span> aanbetaling van <span class="font-weight-bold withdraw-user"></span>?</p>
                     <p class="withdraw-detail">
                     </p>
 
@@ -120,8 +120,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-success">Approve</button>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Dichtbij</button>
+                    <button type="submit" class="btn btn-success">goedkeuren</button>
                 </div>
             </form>
         </div>
@@ -133,7 +133,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Reject Deposit Confirmation</h5>
+                <h5 class="modal-title">Aanbetalingsbevestiging afwijzen</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -143,14 +143,14 @@
                 <input type="hidden" name="id">
                 <div class="modal-body">
 
-                    <p>Are you sure to <span class="font-weight-bold">reject</span> <span class="font-weight-bold withdraw-amount text-success"></span> deposit of <span class="font-weight-bold withdraw-user"></span>?</p>
+                    <p>Weet je het zeker <span class="font-weight-bold">Afwijzen</span> <span class="font-weight-bold withdraw-amount text-success"></span> aanbetaling van <span class="font-weight-bold withdraw-user"></span>?</p>
 
                     <p class="withdraw-detail"></p>
                     <span class="withdraw-proveImg"></span>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger">Reject</button>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Dichtbij</button>
+                    <button type="submit" class="btn btn-danger">Afwijzen</button>
                 </div>
             </form>
         </div>

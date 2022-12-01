@@ -50,7 +50,7 @@ class TilesController extends Controller
             try {
                 $filename = upload_image($request->image, config('constants.deposit.gateway.path'), config('constants.deposit.gateway.size'));
             } catch (\Exception $exp) {
-                $notify[] = ['error', 'Image could not be uploaded.'];
+                $notify[] = ['error', 'Afbeelding kon niet worden geüpload.'];
                 return back()->withNotify($notify);
             }
         }
@@ -64,8 +64,8 @@ class TilesController extends Controller
             'description' => $request->description,
         ]);
 
-        $notify[] = ['success', $tile->name . ' Tile has been added.'];
-        return back()->withNotify($notify);
+        $notify[] = ['success', $tile->name . ' Tegel is toegevoegd.'];
+        return redirect()->route('admin.tiles.index')->withNotify($notify);
     }
 
     public function update(Request $request, $id)
@@ -86,7 +86,7 @@ class TilesController extends Controller
             try {
                 $filename = upload_image($request->image, config('constants.deposit.gateway.path'), config('constants.deposit.gateway.size'));
             } catch (\Exception $exp) {
-                $notify[] = ['error', 'Image could not be uploaded.'];
+                $notify[] = ['error', 'Afbeelding kon niet worden geüpload.'];
                 return back()->withNotify($notify);
             }
         }
@@ -99,7 +99,7 @@ class TilesController extends Controller
             'description' => $request->description,
         ]);
 
-        $notify[] = ['success', $method->name . ' Tile has been updated.'];
+        $notify[] = ['success', $method->name . ' Tegel is bijgewerkt.'];
         return back()->withNotify($notify);
     }
 }

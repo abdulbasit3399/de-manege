@@ -35,7 +35,7 @@ class ManageUsersController extends Controller
     }
     public function withBalanceUsers()
     {
-        $page_title = 'Users With Balance';
+        $page_title = 'Gebruikers met saldo';
         $empty_message = 'No user found';
         $users = UserWallet::where('balance','>',0)->orderBy('balance','DESC')->with('user')->paginate(config('constants.table.default'));
         return view('admin.users.withbalance', compact('page_title', 'empty_message', 'users'));
@@ -114,12 +114,12 @@ class ManageUsersController extends Controller
 
 
         if ($request->email != $user->email && User::whereEmail($request->email)->whereId('!=', $user->id)->count() > 0) {
-            $notify[] = ['error', 'Email already exists.'];
+            $notify[] = ['error', 'E-mail bestaat al.'];
             return back()->withNotify($notify);
         }
 
         if ($request->mobile != $user->mobile && User::where('mobile', $request->mobile)->whereId('!=', $user->id)->count() > 0) {
-            $notify[] = ['error', 'Phone number already exists.'];
+            $notify[] = ['error', 'Telefoonnummer bestaat al.'];
             return back()->withNotify($notify);
         }
 
@@ -191,7 +191,7 @@ class ManageUsersController extends Controller
         if ($request->act) {
             $userWallet->balance = bcadd($userWallet->balance, $amount, site_precision());
             $userWallet->save();
-            $notify[] = ['success', $general->cur_sym . $amount . ' has been added to ' . $user->username . ' balance'];
+            $notify[] = ['success', $general->cur_sym . $amount . ' is toegevoegd aan ' . $user->username . ' evenwicht'];
 
 
             Trx::create([
@@ -215,7 +215,7 @@ class ManageUsersController extends Controller
 
         } else {
             if ($amount > $userWallet->balance) {
-                $notify[] = ['error', $user->username . ' has insufficient balance.'];
+                $notify[] = ['error', $user->username . ' onvoldoende saldo heeft.'];
                 return back()->withNotify($notify);
             }
             $userWallet->balance = bcsub($userWallet->balance, $amount, site_precision());
@@ -242,7 +242,7 @@ class ManageUsersController extends Controller
             // ]);
 
 
-            $notify[] = ['success', $general->cur_sym . $amount . ' has been subtracted from ' . $user->username . ' balance'];
+            $notify[] = ['success', $general->cur_sym . $amount . ' is afgetrokken ' . $user->username . ' evenwicht'];
         }
         return back()->withNotify($notify);
 
@@ -335,7 +335,7 @@ class ManageUsersController extends Controller
             $empty_message = 'No transactions';
             return view('admin.reports.transactions', compact('page_title', 'search', 'user', 'transactions', 'empty_message'));
         }
-        $page_title = 'User Transactions : ' . $user->username;
+        $page_title = 'Gebruikerstransacties : ' . $user->username;
         $transactions = $user->transactions()->with('user')->latest()->paginate(config('table.default'));
         $empty_message = 'No transactions';
         return view('admin.reports.transactions', compact('page_title', 'user', 'transactions', 'empty_message'));
