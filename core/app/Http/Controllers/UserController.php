@@ -838,6 +838,7 @@ class UserController extends Controller
 
     public function changePassword()
     {
+
         $data['page_title'] = "VERANDER WACHTWOORD";
         // return view('templates.new_minimal.user.password', $data);
         return view(activeTemplate() . 'user.password', $data);
@@ -847,7 +848,7 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'current_password' => 'required',
-            'password' => 'required|min:5|confirmed'
+            'password' => 'required|confirmed'
         ]);
         try {
 
