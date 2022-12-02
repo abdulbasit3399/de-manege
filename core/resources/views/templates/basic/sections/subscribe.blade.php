@@ -14,7 +14,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <form class="subscribe-form" action="{{route('home.subscribe')}}" method="post">
+                <form class="subscribe-form" action="{{route('huis.subscribe')}}" method="post">
                     @csrf
                     <input type="email" name="email" placeholder="@lang('Subscribe your email')" required value="{{old('email')}}">
                     <input type="submit" class="btn-default website-color " value="@lang('Subscribe')">

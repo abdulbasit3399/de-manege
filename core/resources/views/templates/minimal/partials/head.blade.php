@@ -42,7 +42,7 @@
 </head>
 <style type="text/css">
   html body .content .content-wrapper .content-wrapper-before{
-    background: #6b6f80;
+    background: #0ad648;
   }
 </style>
 

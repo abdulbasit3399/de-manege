@@ -27,7 +27,7 @@
                             <div class="meta ">
                                 <span class="date text-white pt-0">  {{date('d-M-Y', strtotime($data->created_at))}}</span>
                             </div>
-                            <a href="{{route('home.blog.details',[str_slug($data->data_values->title),$data->id])}}">
+                            <a href="{{route('huis.blog.details',[str_slug($data->data_values->title),$data->id])}}">
                             <h2 class="blog-title text-white">{{__($data->data_values->title)}} </h2>
                             </a>
                         </div>

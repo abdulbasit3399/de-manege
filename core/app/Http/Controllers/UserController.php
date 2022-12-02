@@ -28,7 +28,6 @@ use Session;
 use Validator;
 use Image;
 use File;
-
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 

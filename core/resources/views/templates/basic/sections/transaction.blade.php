@@ -26,7 +26,7 @@
                     <div class="transaction-area">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#deposit" role="tab"
+                                <a class="nav-link active" id="huis-tab" data-toggle="tab" href="#deposit" role="tab"
                                    aria-selected="true">@lang('Latest Deposit')</a>
                             </li>
                             <li class="nav-item">
@@ -35,7 +35,7 @@
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="deposit" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active" id="deposit" role="tabpanel" aria-labelledby="huis-tab">
 
                                 <table class="history_table">
                                     <thead>

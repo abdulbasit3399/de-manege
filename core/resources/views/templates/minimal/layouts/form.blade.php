@@ -63,7 +63,7 @@
             <div class="col-lg-2 col-md-4 col-6">
                 <a href="{{route('home')}}">
                     <div class="box">
-                        <p> @lang('Home') </p>
+                        <p> @lang('home') </p>
                         <i class="fas fa-home"></i>
                     </div>
                 </a>

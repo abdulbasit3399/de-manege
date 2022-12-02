@@ -29,7 +29,7 @@
       <div class="details">
         <h2 class="amount mb-2 font-weight-bold">{{ collect($widget['total_users'])->count() }}</h2>
         <h6 class="mb-3">Aantal leden</h6>
-        <a href="{{ route('admin.users.all') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.users.all') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-group"></i>
@@ -42,7 +42,7 @@
       <div class="details">
         <h2 class="amount mb-2 font-weight-bold">{{ collect($widget['total_users'])->where('status', 1)->count() }}</h2>
         <h6 class="mb-3">Active Users</h6>
-        <a href="{{ route('admin.users.active') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.users.active') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-user-circle"></i>
@@ -55,7 +55,7 @@
       <div class="details">
         <h2 class="amount mb-2 font-weight-bold">{{ collect($widget['total_users'])->where('status', 0)->count() }}</h2>
         <h6 class="mb-3">Banned Users</h6>
-        <a href="{{ route('admin.users.banned') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.users.banned') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-user-times"></i>
@@ -68,7 +68,7 @@
       <div class="details">
         <h3 class="amount mb-2 font-weight-bold">{{ $general->cur_sym }}{{ formatter_money($widget['user_balance'])}}</h3>
         <h6 class="mb-3">Tegoed gebruikers</h6>
-        <a href="{{ route('admin.users.withbalance') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.users.withbalance') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-money"></i>
@@ -81,7 +81,7 @@
       <div class="details">
         <h2 class="amount mb-2 font-weight-bold">{{ collect($widget['total_users'])->where('ev', 0)->count() }}</h2>
         <h6 class="mb-3">Email Unverified Users</h6>
-        <a href="{{ route('admin.users.emailUnverified') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.users.emailUnverified') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-envelope"></i>
@@ -94,7 +94,7 @@
       <div class="details">
         <h2 class="amount mb-2 font-weight-bold">{{ collect($widget['total_users'])->where('sv', 0)->count() }}</h2>
         <h6 class="mb-3">SMS Unverified Users</h6>
-        <a href="{{ route('admin.users.smsUnverified') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.users.smsUnverified') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-comments-o"></i>
@@ -113,7 +113,7 @@
       <div class="details">
         <h2 class="amount mb-2 font-weight-bold">{{ formatter_money($widget['deposits']->total) }}</h2>
         <h6 class="mb-3">Aantal opwaardering</h6>
-        <a href="{{ route('admin.deposit.approved') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.deposit.approved') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-download"></i>
@@ -128,7 +128,7 @@
       <div class="details">
         <h3 class="amount mb-2 font-weight-bold">{{ $general->cur_sym }}{{ formatter_money($widget['deposits']->total_charge) }}</h3>
         <h6 class="mb-3">Total Deposit Charge</h6>
-        <a href="{{ route('admin.deposit.approved') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.deposit.approved') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-money"></i>
@@ -142,7 +142,7 @@
             <div class="details">
                 <h3 class="amount mb-2 font-weight-bold">{{ $general->cur_sym }}{{ formatter_money($widget['deposits']->total_amount) }}</h3>
                 <h6 class="mb-3">Totaal opwaardeer bedrag</h6>
-                <a href="{{ route('admin.deposit.approved') }}" class="btn btn-sm btn-neutral">View all</a>
+                <a href="{{ route('admin.deposit.approved') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
             </div>
             <div class="icon">
                 <i class="fa fa-money"></i>
@@ -155,7 +155,7 @@
       <div class="details">
         <h2 class="amount mb-2 font-weight-bold">{{ formatter_money($widget['withdrawals']->total) }}</h2>
         <h6 class="mb-3">Total Withdrawals</h6>
-        <a href="{{ route('admin.withdraw.log') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.withdraw.log') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-upload"></i>
@@ -168,7 +168,7 @@
       <div class="details">
         <h3 class="amount mb-2 font-weight-bold">{{ $general->cur_sym }}{{ formatter_money($widget['withdrawals']->total_charge) }}</h3>
         <h6 class="mb-3">Total Withdrawal Charge</h6>
-        <a href="{{ route('admin.withdraw.log') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.withdraw.log') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-money"></i>
@@ -181,7 +181,7 @@
       <div class="details">
         <h3 class="amount mb-2 font-weight-bold">{{ $general->cur_sym }}{{ formatter_money($widget['withdrawals']->total_amount) }}</h3>
         <h6 class="mb-3">Total Withdrawal Amount</h6>
-        <a href="{{ route('admin.withdraw.log') }}" class="btn btn-sm btn-neutral">View all</a>
+        <a href="{{ route('admin.withdraw.log') }}" class="btn btn-sm btn-neutral">Alles weergeven</a>
       </div>
       <div class="icon">
         <i class="fa fa-money"></i>

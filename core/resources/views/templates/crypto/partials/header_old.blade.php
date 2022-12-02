@@ -65,13 +65,13 @@
                 </div>
                 <ul class="menu">
 
-                    {{-- <li><a href="{{route('home')}}">@lang('Home')</a></li>
-                    <li><a href="{{route('home.plan')}}">@lang('Plan')</a></li>
+                    {{-- <li><a href="{{route('huis')}}">@lang('huis')</a></li>
+                    <li><a href="{{route('huis.plan')}}">@lang('Plan')</a></li>
                     @foreach($pages as $k => $data)
-                    <li><a href="{{route('home.pages',[$data->slug])}}">{{__($data->name)}}</a></li>
+                    <li><a href="{{route('huis.pages',[$data->slug])}}">{{__($data->name)}}</a></li>
                     @endforeach
-                    <li><a href="{{route('home.blog')}}">@lang('Blog')</a></li>
-                    <li><a href="{{route('home.contact')}}">@lang('Contact')</a></li>
+                    <li><a href="{{route('huis.blog')}}">@lang('Blog')</a></li>
+                    <li><a href="{{route('huis.contact')}}">@lang('Contact')</a></li>
                     --}}
 
                     @auth
@@ -79,7 +79,7 @@
                             @if(Request::routeIs('user*'))
                                 <a href="{{route('user.logout')}}" class="header-button btn btn-pill btn-primary">@lang('Logout')</a>
                             @else
-                            <a href="{{route('user.home')}}" class="header-button bg-3">@lang('Dashboard')</a>
+                            <a href="{{route('user.huis')}}" class="header-button bg-3">@lang('Dashboard')</a>
                             @endif
                         </li>
                     @else

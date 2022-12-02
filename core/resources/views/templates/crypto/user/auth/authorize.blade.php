@@ -176,7 +176,7 @@
 
 @else
 <script>
-    window.location.href = "{{route('user.home')}}";
+    window.location.href = "{{route('user.huis')}}";
 </script>
 @endif
 @endsection

@@ -5,9 +5,9 @@
 <div class="container-fluid mx-auto">
     <div class="card">
     <div class="row justify-content-center">
-        <div class="col-6 ">
+        <div class="col-12 col-md-6">
 
-            <h3 class="m-4">@lang('Lid toevoegen')</h3>
+            <h3 class="m-4">@lang('Alle leden')</h3>
         <form action="{{ route('admin.register') }}" method="POST" class="account-form"  >
             @csrf
 

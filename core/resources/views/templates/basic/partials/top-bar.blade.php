@@ -54,23 +54,23 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav main-menu ml-auto mr-2 mr-xl-5">
                     @if(!request()->routeIs('user*'))
-                        <li><a href="{{route('home')}}">@lang('Home')</a></li>
-                        <li><a href="{{route('home.plan')}}">@lang('Plan')</a></li>
+                        <li><a href="{{route('huis')}}">@lang('huis')</a></li>
+                        <li><a href="{{route('huis.plan')}}">@lang('Plan')</a></li>
                         @foreach($pages as $k => $data)
-                            <li><a href="{{route('home.pages',[$data->slug])}}">{{__($data->name)}}</a></li>
+                            <li><a href="{{route('huis.pages',[$data->slug])}}">{{__($data->name)}}</a></li>
                         @endforeach
 
-                        <li><a href="{{route('home.blog')}}">@lang('Blog')</a></li>
-                        <li><a href="{{route('home.contact')}}">@lang('Contact')</a></li>
+                        <li><a href="{{route('huis.blog')}}">@lang('Blog')</a></li>
+                        <li><a href="{{route('huis.contact')}}">@lang('Contact')</a></li>
                      
 
                         @auth
-                        <li><a href="{{route('user.home')}}">@lang('Dashboard')</a></li>
+                        <li><a href="{{route('user.huis')}}">@lang('Dashboard')</a></li>
                         @endauth
                     @else
-                        <li><a href="{{route('home')}}">@lang('Home')</a></li>
+                        <li><a href="{{route('huis')}}">@lang('huis')</a></li>
                         @auth
-                        <li><a href="{{route('user.home')}}">@lang('Dashboard')</a></li>
+                        <li><a href="{{route('user.huis')}}">@lang('Dashboard')</a></li>
 
 
                         <li>
@@ -78,7 +78,7 @@
                                 @lang('Investment')
                             </a>
                             <div class="dropdown-menu" aria-labelledby="investment">
-                                <a class="dropdown-item" href="{{route('home.plan')}}">@lang('Investment Plans')</a>
+                                <a class="dropdown-item" href="{{route('huis.plan')}}">@lang('Investment Plans')</a>
                                 <a class="dropdown-item" href="{{route('user.interest.log')}}">@lang('Return Interest Log')</a>
                             </div>
                         </li>

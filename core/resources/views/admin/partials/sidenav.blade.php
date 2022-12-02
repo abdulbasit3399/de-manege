@@ -56,7 +56,7 @@
                     <li class="nav-item {{ sidenav_active('admin.users.all') }}">
                         <a class="nav-link" href="{{ route('admin.users.all') }}">
                             <span class="mr-2"><i class="fa fa-angle-right"></i></span>
-                            <span class="menu-title">Lid toevoegen</span>
+                            <span class="menu-title">Alle leden</span>
                         </a>
                     </li>
                     {{--  <li class="nav-item {{ sidenav_active('admin.users.active') }}">

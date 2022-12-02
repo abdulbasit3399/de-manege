@@ -9,7 +9,7 @@
     <!-- page-wrapper Start-->
     <div class="page-wrapper landing-page">
       <!-- Page Body Start            -->
-      {{--  <div class="landing-home">  --}}
+      {{--  <div class="landing-huis">  --}}
         {{--  <ul class="decoration">
           <li class="one"><img class="img-fluid" src="../assets/images/landing/decore/1.png" alt=""></li>
           <li class="two"><img class="img-fluid" src="../assets/images/landing/decore/2.png" alt=""></li>

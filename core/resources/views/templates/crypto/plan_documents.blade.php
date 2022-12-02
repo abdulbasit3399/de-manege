@@ -788,7 +788,7 @@
         </div>
         <div class="col-sm-12 framworks">
           <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
-            <li class="nav-item"><a class="nav-link d-flex active" id="pills-home-tab" data-bs-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"> <img src="../assets/images/landing/icon/html/html.png" alt="">
+            <li class="nav-item"><a class="nav-link d-flex active" id="pills-huis-tab" data-bs-toggle="pill" href="#pills-huis" role="tab" aria-controls="pills-huis" aria-selected="true"> <img src="../assets/images/landing/icon/html/html.png" alt="">
                 <div class="text-start">
                   <h5 class="mb-0">HTML</h5>
                   <p class="mb-0">Frameworks</p>
@@ -815,7 +815,7 @@
                 </div></a></li>
           </ul>
           <div class="tab-content mt-5" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="tab-pane fade show active" id="pills-huis" role="tabpanel" aria-labelledby="pills-huis-tab">
               <ul class="framworks-list">
                 <li class="box wow fadeInUp">
                   <div> <img src="../assets/images/landing/icon/html/bootstrap.png" alt=""></div>

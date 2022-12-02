@@ -60,17 +60,17 @@
     <div class="container pt-4">
         <div class="row text-center justify-content-center">
             <div class="col-lg-2 col-md-4 col-6">
-                <a href="{{route('home')}}">
+                <a href="{{route('huis')}}">
                     <div class="box">
-                        <p> @lang('Home') </p>
-                        <i class="fas fa-home"></i>
+                        <p> @lang('huis') </p>
+                        <i class="fas fa-huis"></i>
                     </div>
                 </a>
             </div>
 
             @foreach($pages as $k => $data)
             <div class="col-lg-2 col-md-4 col-6">
-                <a href="{{route('home.pages',[$data->slug])}}">
+                <a href="{{route('huis.pages',[$data->slug])}}">
                     <div class="box">
                         <p>{{__($data->name)}}</p>
                         <i class="fas fa-newspaper"></i>
@@ -81,7 +81,7 @@
             @endforeach
 
             <div class="col-lg-2 col-md-4 col-6">
-                <a href="{{route('home.contact')}}">
+                <a href="{{route('huis.contact')}}">
                     <div class="box">
                         <p> @lang('Contact') </p>
                         <i class="fas fa-envelope"></i>
@@ -90,7 +90,7 @@
             </div>
 
             <div class="col-lg-2 col-md-4 col-6">
-                <a href="{{route('home.rules')}}">
+                <a href="{{route('huis.rules')}}">
                     <div class="box">
                         <p> @lang('Rules') </p>
                         <i class="fas fa-newspaper"></i>

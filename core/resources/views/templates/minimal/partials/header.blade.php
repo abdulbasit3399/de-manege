@@ -68,7 +68,7 @@
                 </div>
                 {{--  <ul class="menu">  --}}
 
-                    {{-- <li><a href="{{route('home')}}">@lang('Home')</a></li>
+                    {{-- <li><a href="{{route('home')}}">@lang('home')</a></li>
                     <li><a href="{{route('home.plan')}}">@lang('Plan')</a></li>
                     @foreach($pages as $k => $data)
                     <li><a href="{{route('home.pages',[$data->slug])}}">{{__($data->name)}}</a></li>

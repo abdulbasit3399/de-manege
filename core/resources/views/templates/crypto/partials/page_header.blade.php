@@ -17,7 +17,7 @@
       </form>
       <div class="header-logo-wrapper col-auto p-0">
         <div class="logo-wrapper">
-          <a href="{{route('home')}}">
+          <a href="{{route('huis')}}">
             <img class="img-fluid" src="{{get_image(config('constants.logoIcon.path') .'/logo.png')}}" alt="" style="width: 260px !important;margin: 5px 56px;max-width: unset;">
           </a>
         </div>

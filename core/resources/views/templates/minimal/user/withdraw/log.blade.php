@@ -61,9 +61,9 @@
                           </td>
                           <td data-label="@lang('Status')">
                             @if($data->status == 2)
-                            <span class="badge badge-warning">@lang('Pending')</span>
+                            <span class="badge badge-warning">@lang('In Afwachting')</span>
                             @elseif($data->status == 1)
-                            <span class="badge badge-success">@lang('Completed')</span>
+                            <span class="badge badge-success">@lang('Goedgekeurd')</span>
                             <span type="button" class="btn-info btn-rounded py-1 px-1 badge approveBtn" data-admin_feedback="{{$data->admin_feedback}}"><i class="ft-info"></i></span>
                             @elseif($data->status == 3)
                             <span class="badge badge-danger">@lang('Rejected')</span>

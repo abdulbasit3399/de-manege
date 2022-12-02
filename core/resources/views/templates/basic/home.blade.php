@@ -14,7 +14,7 @@
 @php
     $bannerCaption = getContent('banner.content',true);
 @endphp
-@push('home-breadcrumb')
+@push('huis-breadcrumb')
     <div class="banner-area">
         <div id="particles-js"></div>
         <div class="container">

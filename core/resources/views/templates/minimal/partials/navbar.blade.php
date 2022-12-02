@@ -10,7 +10,7 @@
           </li>
           <li class="d-none d-md-block">
             {{--  <a class="nav-link" id="apps-navbar-links" href="{{route('home')}}">
-              @lang('Home')
+              @lang('home')
             </a>  --}}
           </li>
           {{--  <li class="d-none d-md-block">

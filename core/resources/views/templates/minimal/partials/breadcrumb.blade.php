@@ -45,7 +45,7 @@
                     </h2>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="{{url('/')}}">@lang('Home')</a>
+                            <a href="{{url('/')}}">@lang('home')</a>
                         </li>
                         <li>
                             {{__($page_title)}}

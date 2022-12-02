@@ -232,6 +232,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::post('user/update/{id}', 'ManageUsersController@update')->name('users.update');
         Route::get('users/{scope}/search', 'ManageUsersController@search')->name('users.search');
         Route::post('user/add-sub-balance/{id}', 'ManageUsersController@addSubBalance')->name('users.addSubBalance');
+        Route::get('user/delete/{id}', 'ManageUsersController@usersDelete')->name('users.delete');
         Route::get('users/send-email', 'ManageUsersController@showEmailAllForm')->name('users.email.all');
         Route::post('users/send-email', 'ManageUsersController@sendEmailAll')->name('users.email.all');
         Route::get('user/send-email/{id}', 'ManageUsersController@showEmailSingleForm')->name('users.email.single');

@@ -29,7 +29,7 @@
 
 <header class="header-section">
     @include($activeTemplate.'partials.top-bar')
-    @stack('home-breadcrumb')
+    @stack('huis-breadcrumb')
 </header>
 
 @yield('content')

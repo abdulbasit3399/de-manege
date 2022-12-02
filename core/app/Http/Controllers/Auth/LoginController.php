@@ -69,6 +69,7 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($request)) {
+            return redirect()->route('user.home');
             return $this->sendLoginResponse($request);
         }
 
@@ -115,7 +116,7 @@ class LoginController extends Controller
 
         request()->session()->invalidate();
 
-        $notify[] = ['success', 'You have been logged out.'];
+        $notify[] = ['success', 'Je bent uitgelogd.'];
         return redirect()->route('user.login')->withNotify($notify);
     }
 

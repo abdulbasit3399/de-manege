@@ -358,4 +358,10 @@ class ManageUsersController extends Controller
         $empty_message = 'No data';
         return view('admin.users.referrals', compact('page_title', 'users', 'empty_message'));
     }
+    public function usersDelete($id)
+    {
+        $user = User::find($id)->delete();
+        $notify[] = ['success', 'Met succes verwijderd!'];
+        return redirect()->back()->withNotify($notify);
+    }
 }

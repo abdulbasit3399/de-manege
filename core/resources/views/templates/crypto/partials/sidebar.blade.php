@@ -1,7 +1,7 @@
 <div class="sidebar-wrapper">
   <div>
     <div class="logo-wrapper">
-    	<a href="{{route('user.new_home')}}">
+    	<a href="{{route('user.new_huis')}}">
             <img class="img-fluid for-light" src="{{asset('assets/crypto/images/logo/logo-black.png')}}" style="max-width: 85%;" alt="">
 	    	<img class="img-fluid for-dark" src="{{asset('assets/crypto/images/logo/logo-white.png')}}" style="max-width: 85%;" alt="">
 
@@ -20,13 +20,13 @@
             <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
           </li>
           <li class="sidebar-list">
-            <a class="sidebar-link sidebar-title link-nav @if(Request::routeIs('user.home')) active @endif" href="{{route('user.home')}}"><i data-feather="home"> </i><span>Dashboard</span></a>
+            <a class="sidebar-link sidebar-title link-nav @if(Request::routeIs('user.huis')) active @endif" href="{{route('user.huis')}}"><i data-feather="huis"> </i><span>Dashboard</span></a>
           </li>
           <li class="sidebar-list">
-            <a class="sidebar-link sidebar-title link-nav @if(Request::routeIs('home.invest')) active @endif" href="{{route('home.invest')}}"><i data-feather="dollar-sign"></i><span>@lang('My Investment')</span></a>
+            <a class="sidebar-link sidebar-title link-nav @if(Request::routeIs('huis.invest')) active @endif" href="{{route('huis.invest')}}"><i data-feather="dollar-sign"></i><span>@lang('My Investment')</span></a>
           </li>
           <li class="sidebar-list">
-            <a class="sidebar-link sidebar-title link-nav @if(Request::routeIs('home.plan')) active @endif" href="{{route('home.plan')}}"><i data-feather="package"></i><span>@lang('Investment Plan')</span></a>
+            <a class="sidebar-link sidebar-title link-nav @if(Request::routeIs('huis.plan')) active @endif" href="{{route('huis.plan')}}"><i data-feather="package"></i><span>@lang('Investment Plan')</span></a>
           </li>
           <li class="sidebar-list">
             <a class="sidebar-link sidebar-title link-nav @if(Request::routeIs('user.interest.log')) active @endif" href="{{route('user.interest.log')}}"><i data-feather="trending-up"></i><span>@lang('Return Interest Log')</span></a>

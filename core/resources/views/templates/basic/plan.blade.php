@@ -51,7 +51,7 @@
                 <div class="col-md-4">
                     <div class="plan-area">
                         <div class="plan-item">
-                            <div class="plan_name"><a href="{{route('home.plan_document',['id'=>$data->id])}}" class="view_more">{{$data->name}}</a></div>
+                            <div class="plan_name"><a href="{{route('huis.plan_document',['id'=>$data->id])}}" class="view_more">{{$data->name}}</a></div>
                             <div class="plan_day">{{__($data->interest)}} @if($data->interest_status == 1) % @else {{__($general->cur_text)}} @endif</div>
                             <div class="plan_pr">
                                 {{__($time_name->name)}} / @if($data->lifetime_status == 0) {{__($data->repeat_time)}} @lang('Times') @else @lang('Lifetime') @endif

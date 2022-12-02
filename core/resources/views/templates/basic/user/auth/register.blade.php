@@ -116,7 +116,7 @@
                                     <input class="form-check-input" type="checkbox" required id="gridCheck1">
                                     <label class="form-check-label" for="gridCheck1">
                                         @foreach($company_policy as $policy)
-                                            <a target="_blank" href="{{route('home.policy',[$policy, str_slug($policy->data_values->title)])}}"> {{__($policy->data_values->title)}}</a>
+                                            <a target="_blank" href="{{route('huis.policy',[$policy, str_slug($policy->data_values->title)])}}"> {{__($policy->data_values->title)}}</a>
                                             @if(!$loop->last)
                                                 ,
                                             @endif

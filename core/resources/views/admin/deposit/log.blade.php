@@ -15,6 +15,7 @@
                                 <th scope="col">Gebruikersnaam</th>
                                 {{--  <th scope="col">Method</th>  --}}
                                 <th scope="col">Hoeveelheid</th>
+                                <th scope="col">Betalingswijze</th>
                                 {{--  <th scope="col">Bedrag</th>  --}}
                                 {{--  <th scope="col">After Charge</th>  --}}
                                 {{--  <th scope="col">Rate</th>  --}}
@@ -36,6 +37,7 @@
                                     <td><a href="{{ route('admin.users.detail', $deposit->user->id) }}">{{ $deposit->user->username }}</a></td>
                                     {{--  <td>{{ $deposit->gateway->name }}</td>  --}}
                                     <td class="font-weight-bold">{{ $deposit->amount +0 }} {{ $general->cur_text }}</td>
+                                    <td class="font-weight-bold">{{$deposit->amount_type}}</td>
                                     {{--  <td class="text-success">{{ $deposit->charge +0 }} {{ $general->cur_text }}</td>  --}}
                                     {{--  <td> {{ $deposit->amount+$deposit->charge }}</td>  --}}
                                     {{--  <td> {{ $deposit->rate +0 }}</td>  --}}

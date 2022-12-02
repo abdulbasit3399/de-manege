@@ -45,7 +45,7 @@
                     <h2 class="title">{{__($page_title)}}</h2>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="{{route('home')}}">@lang('Home')</a>
+                            <a href="{{route('home')}}">@lang('home')</a>
                         </li>
                         <li>
                             {{__($page_title)}}

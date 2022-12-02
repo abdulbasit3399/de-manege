@@ -101,7 +101,7 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu {
   body.vertical-layout.vertical-menu.menu-expanded .main-menu.menu-dark .navigation > li > a > i {
     display: inline-block;
     margin-right: 20px;
-    background: #2c303b;
+    background: #15682e;
     width: 40px;
     height: 40px;
     border-radius: 12%;
@@ -518,7 +518,7 @@ body.vertical-layout.vertical-menu.menu-collapsed.menu-flipped .footer {
   .vertical-overlay-menu.menu-open .main-menu.menu-dark .navigation > li > a > i {
     display: inline-block;
     margin-right: 20px;
-    background: #2c303b;
+    background: #15682e;
     width: 40px;
     height: 40px;
     border-radius: 12%;

@@ -38,14 +38,14 @@
                     <div class="col-md-6 col-xl-4 col-sm-10">
                         <div class="post-item">
                             <div class="post-thumb c-thumb">
-                                <a href="{{route('home.blog.details',[str_slug($data->data_values->title),$data->id])}}">
+                                <a href="{{route('huis.blog.details',[str_slug($data->data_values->title),$data->id])}}">
                                     <img src="{{asset('assets/images/frontend/blog/'.$data->data_values->image)}}"
                                          alt="{{$data->data_values->title}}">
                                 </a>
                             </div>
                             <div class="post-content">
                                 <h5 class="title">
-                                    <a href="{{route('home.blog.details',[str_slug($data->data_values->title),$data->id])}}"> {{__(str_limit($data->data_values->title,30))}}</a>
+                                    <a href="{{route('huis.blog.details',[str_slug($data->data_values->title),$data->id])}}"> {{__(str_limit($data->data_values->title,30))}}</a>
                                 </h5>
                                 <ul class="meta-post">
                                     <li>

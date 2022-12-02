@@ -137,7 +137,7 @@
           </div>
         </div>
         <a href="{{ route('admin.users.withdrawals', $user->id) }}" class="text-white text-center">
-          <div class="card-footer btn btn-block bg-orange">View All</div>
+          <div class="card-footer btn btn-block bg-orange">Alles weergeven</div>
         </a>
       </div>
     </div>
@@ -155,7 +155,7 @@
           </div>
         </div>
         <a href="{{ route('admin.users.deposits', $user->id) }}" class="text-white text-center">
-          <div class="card-footer btn btn-block btn-success">View All</div>
+          <div class="card-footer btn btn-block btn-success">Alles weergeven</div>
         </a>
       </div>
     </div>
@@ -173,7 +173,7 @@
           </div>
         </div>
         <a href="{{ route('admin.users.invests', $user->id) }}" class="text-white text-center">
-          <div class="card-footer btn btn-block btn-primary">View All</div>
+          <div class="card-footer btn btn-block btn-primary">Alles weergeven</div>
         </a>
       </div>
     </div>  --}}
@@ -233,12 +233,19 @@
             <input class="form-control" type="email" name="email" value="{{ $user->email }}" required>
           </div>
         </div>
+
         {{--  <div class="col-md-6">
           <div class="form-group">
             <label>Phone </label>
             <input class="form-control" type="text" name="mobile" value="{{ $user->mobile }}">
           </div>
         </div>  --}}
+      </div>
+      <div class="form-row">
+        <div class="form-group col-lg-4">
+          <p class="text-muted">Toestand</p>
+          <input type="checkbox" data-width="100%" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-onstyle="success"    data-offstyle="danger" data-on="Actief" data-off="Verboden"  data-width="100%" name="status" @if($user->status) checked @endif>
+        </div>
       </div>
       {{--  <div class="form-row">
         <div class="col-md-6">
@@ -334,6 +341,11 @@
           <input type="submit" class="btn btn-block btn-primary mt-2" value="Wijzigingen opslaan">
         </div>
       </div>
+      {{-- <div class="form-group row">
+        <div class="col-lg-12 text-center">
+          <a href="{{route('admin.users.delete',$user->id)}}" class="btn btn-danger btn-block" onclick="return confirm('Weet je zeker dat je deze gebruiker wil verwijderen?')">Gebruiker verwijderen</a>
+        </div>
+      </div> --}}
     </div>
   </form>
 </div>
@@ -362,7 +374,7 @@
               <label>Selecteer Portemonnee<span class="text-danger">*</span></label>
               <select name="wallet_id" class="form-control" required>
                 @foreach($user->wallets as $wallet)
-                <option value="{{$wallet->id}}">{{str_replace('_',' ',strtoupper($wallet->wallet_type))}}</option>
+                <option value="{{$wallet->id}}">Tegoed</option>
                 @endforeach
               </select>
             </div>
@@ -377,8 +389,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-dark" data-dismiss="modal">dichtbij</button>
-          <button type="submit" class="btn btn-success">Versturen</button>
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Annuleren</button>
+          <button type="submit" class="btn btn-success">Bevestigen</button>
         </div>
       </form>
     </div>

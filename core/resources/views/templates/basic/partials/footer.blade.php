@@ -6,15 +6,15 @@
                     <nav class="navbar navbar-expand-lg p-0">
                         <div class="footer-menu">
                             <ul class="navbar-nav mr-auto">
-                                <li><a href="{{route('home')}}">@lang('Home')</a></li>
+                                <li><a href="{{route('huis')}}">@lang('huis')</a></li>
                                 @foreach($company_policy as $policy)
                                     <li>
-                                        <a href="{{route('home.policy',[$policy, str_slug($policy->data_values->title)])}}">
+                                        <a href="{{route('huis.policy',[$policy, str_slug($policy->data_values->title)])}}">
                                             {{__($policy->data_values->title)}}
                                         </a>
                                     </li>
                                 @endforeach
-                                <li><a href="{{route('home.rules')}}">@lang('Rules')</a></li>
+                                <li><a href="{{route('huis.rules')}}">@lang('Rules')</a></li>
                             </ul>
                         </div>
                     </nav>

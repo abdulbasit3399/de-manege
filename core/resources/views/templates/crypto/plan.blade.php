@@ -300,7 +300,7 @@
                         {{--  <img class="img-fluid mb-2 bd" alt="" width="100%" height="150px" src="{{ asset('assets/crypto/images/white-bg.jpg') }}">  --}}
                         <h6 class="mb-0 f-w-700">{{__(@$planCaption->data_values->title)}}</h6>
                         <p>{{__(@$planCaption->data_values->short_details)}}</p>
-                        <h4 class="px-4"><a href="{{route('home.plan_document',['id'=>$data->id])}}" class="view_more">{{$data->name}}</a></h4>
+                        <h4 class="px-4"><a href="{{route('huis.plan_document',['id'=>$data->id])}}" class="view_more">{{$data->name}}</a></h4>
 
                       </div>
                     </div>
@@ -364,7 +364,7 @@
                   </div>
                     <div class="row col-md-12 col-sm-12 p-4">
                       <div class="col-md-6 col-sm-6 text-center">
-                        <a href="{{route('home.plan_document',['id'=>$data->id])}}" class="view_more btn btn-outline-primary-2x">View more</a>
+                        <a href="{{route('huis.plan_document',['id'=>$data->id])}}" class="view_more btn btn-outline-primary-2x">View more</a>
                       </div>
                       <div class="col-md-6 col-sm-6 text-center">
                         <a href="{{route('user.login')}}" data-bs-toggle="modal" data-bs-target="#depoModal" data-price="{{$data->current_share_price}}" data-resource="{{$data}}" class="custom-button investButton btn btn-outline-success-2x in " >@lang('Invest now')</a>
@@ -418,7 +418,7 @@
                     <tr class="bdr-black">
                       <td>
                         <div>
-                          <p class="font-roboto"><a href="{{route('home.plan_document',['id'=>$data->id])}}" class="view_more">{{$data->name}}</a></p>
+                          <p class="font-roboto"><a href="{{route('huis.plan_document',['id'=>$data->id])}}" class="view_more">{{$data->name}}</a></p>
                         </div>
 
                       </td>

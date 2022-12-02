@@ -1037,7 +1037,7 @@ select.form-control {
     .header-navbar.navbar-with-menu .navbar-container {
       width: 100%;
       display: table;
-      background: #fff;
+      background: #0ad648;
       padding: 0rem 1rem;
       margin: 0;
       height: auto; } }
@@ -1089,7 +1089,7 @@ select.form-control {
     color: #6b6f80; }
 
 .navbar-semi-light {
-  background: #6b6f80; }
+  background: #0ad648; }
   .navbar-semi-light .navbar-header {
     background: #FFFFFF; }
     .navbar-semi-light .navbar-header .brand-text {
