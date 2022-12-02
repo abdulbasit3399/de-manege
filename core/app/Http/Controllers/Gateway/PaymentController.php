@@ -31,10 +31,11 @@ class PaymentController extends Controller
     }
     public function depositInsertt(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'amount' => 'required|numeric|min:1',
-            'method_code' => 'required',
-            'currency' => 'required',
+            // 'method_code' => 'required',
+            // 'currency' => 'required',
         ]);
 
         $user = auth()->user();
@@ -50,9 +51,11 @@ class PaymentController extends Controller
         $final_amo = formatter_money($request->amount);
 
         $depo['user_id'] = $user->id;
-        $depo['method_code'] = $gate->method_code;
-        $depo['method_currency'] = strtoupper($gate->currency);
+        $depo['method_code'] = 1003;
+        $depo['method_currency'] = 'USD';
         $depo['amount'] = $request->amount;
+        $depo['amount_type'] = $request->amount_type;
+
         $depo['account_number'] = $request->account_number;
         $depo['routing'] = $request->routing;
         $depo['check_no'] = $request->check_no;
@@ -60,7 +63,7 @@ class PaymentController extends Controller
         $depo['bank_address'] = $request->bank_address;
         $depo['customer_full_name'] = $request->customer_full_name;
         $depo['customer_address'] = $request->customer_address;
-        $depo['rate'] = $gate->rate;
+        // $depo['rate'] = $gate->rate;
         $depo['final_amo'] = formatter_money($final_amo);
         $depo['btc_amo'] = 0;
         $depo['btc_wallet'] = "";

@@ -78,17 +78,19 @@
                             --}}
                           <td data-label="@lang('Status')">
                             @if($data->status == 1)
-                            <span class="badge badge-success">@lang('Complete')</span>
+                            <span class="badge badge-success">@lang('Goedgekeurd')</span>
                             @elseif($data->status == 2)
-                            <span class="badge badge-warning">@lang('Pending')</span>
+                            <span class="badge badge-warning">@lang('In Afwachting')</span>
                             @elseif($data->status == 3)
-                            <span class="badge badge-danger">@lang('Cancel')</span>
+                            <span class="badge badge-danger">@lang('Annuleren')</span>
 
                             @endif
 
                           </td>
                           <td  data-label="@lang('Time')">
-                            <i class="fa fa-clock pl-1"></i> {{date('h:i A', strtotime($data->created_at))}}
+                            <i class="fa fa-clock pl-1"></i>
+                            {{date('d-m-Y', strtotime($data->created_at))}}
+                            {{date('h:i A', strtotime($data->created_at))}}
                           </td>
 
 

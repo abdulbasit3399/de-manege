@@ -2,7 +2,7 @@
     <div class="navbar-header">
       <ul class="nav navbar-nav flex-row">
         <li class="nav-item mr-auto"><a class="navbar-brand" href="{{url('/')}}">
-          <img class="brand-logo" src="{{get_image(config('constants.logoIcon.path') .'/logo.png')}}" style="width: 220px;" />
+          {{--  <img class="brand-logo" src="{{get_image(config('constants.logoIcon.path') .'/logo.png')}}" style="width: 220px;" />  --}}
                 {{-- <h3 class="brand-text">Chameleon</h3> --}}
             </a></li>
         <li class="nav-item d-md-none"><a class="nav-link close-navbar"><i class="ft-x"></i></a></li>

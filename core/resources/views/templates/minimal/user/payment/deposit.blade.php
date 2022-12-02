@@ -23,7 +23,43 @@
             </div>
             <div class="card-content collapse show">
               <div class="card-body">
-                <div class="card-text">
+                <form action="{{route('user.deposit.insertt')}}" method="post">
+                    @csrf
+                    <div class="mx-3">
+                        <div class="col-6">
+                        <label>@lang('Bedrag')</label>
+                        <div class="input-group">
+                          <input id="amount" type="text" class="form-control form-control-lg" onkeyup="this.value = this.value.replace (/^\.|[^\d\.]/g, '')" name="amount" placeholder="0.00" required=""  value="{{old('amount')}}">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text currency-addon addon-bg">{{$general->cur_text}}</span>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="col-6 mt-2">
+                        <label>@lang('Hoe betaald?')</label>
+                            <div class="input-group">
+                                <div class="form-check mx-1">
+                                    <input class="form-check-input" type="radio" name="amount_type"  value="Tikkie" checked>
+                                    <label class="form-check-label">
+                                        Tikkie
+                                    </label>
+                                </div>
+                                <div class="form-check mx-1">
+                                <input class="form-check-input" type="radio" name="amount_type"  value="Contant">
+                                <label class="form-check-label" >
+                                    Contant
+                                </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-6 mt-2">
+                        <button type="submit" class="btn btn-primary">@lang('Bevestigen')</button>
+                        </div>
+                      {{--  <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('Dichtbij')</button>  --}}
+                    </div>
+                    </form>
+                {{--  <div class="card-text">
                   <div class="row">
                     @if ($errors->any())
                     @foreach ($errors->all() as $error)
@@ -38,7 +74,7 @@
                             <th>Betalingswijze</th>
                             {{--  <th>Charge</th>
                             <th>Limit</th>  --}}
-                            <th>Toestand</th>
+                            {{--  <th>Toestand</th>
                             <th>Borg</th>
                           </tr>
                         </thead>
@@ -64,7 +100,7 @@
                             </td>
                             <td>{{formatter_money($data->min_amount, $data->method->crypto()).' - '.formatter_money($data->max_amount, $data->method->crypto()).' '.$general->cur_text }}
                             </td>  --}}
-                            <td><span class="badge bg-success">Active</span></td>
+                            {{-- <td><span class="badge bg-success">Active</span></td>
                             <td>
                               @if($data->method_code == 1002)
                               <button type="button"  data-id="{{$data->id}}" data-resource="{{$data}}"
@@ -108,7 +144,7 @@
 
 
                   </div>
-                </div>
+                </div>  --}}
               </div>
             </div>
           </div>

@@ -104,7 +104,7 @@
                         </div>  --}}
 
                         <div class="form-group">
-                            <input type="submit"  class="submit-form-btn" value="@lang('SIGN IN')">
+                            <input type="submit"  class="submit-form-btn" value="@lang('Inloggen')">
                         </div>
 
                         {{--  <div class="form-group">
