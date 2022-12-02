@@ -1597,7 +1597,7 @@ footer .footer-bottom {
 }
 
 header {
-    position: fixed;
+/*    position: fixed;*/
     z-index: 99;
     width: 100%;
     top: 22px;
@@ -1622,9 +1622,9 @@ header.active {
 }
 
 header.inActive {
-    -webkit-transform: translateY(-130%);
-    -ms-transform: translateY(-130%);
-    transform: translateY(-130%);
+/*    -webkit-transform: translateY(-130%);*/
+/*    -ms-transform: translateY(-130%);*/
+/*    transform: translateY(-130%);*/
 }
 
 .header-top .header-top-area {

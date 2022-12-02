@@ -1,7 +1,7 @@
 @extends($activeTemplate .'layouts.master')
 @push('style')
-
-<link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-pincode-input.css') }}"/>
+<link rel="stylesheet" href="{{ asset('assets/admin/css/jquery.pinlogin.css') }}"/>
+{{-- <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-pincode-input.css') }}"/> --}}
 {{-- <style>
     .pincode-input-container{
         display: flex;
@@ -30,15 +30,7 @@
         border: none !important;
     }
 </style> --}}
-<style>
-    @media (max-width: 600px) {
-    .pincode-input-text, .form-control.pincode-input-text {
 
-        width: 35px;
-        float: none;
-    }
-}
-</style>
 @endpush
 
 @section('content')
@@ -48,9 +40,9 @@
     @endphp
     @if($bannerCaption)
     <!-- ========Banner-Section Starts Here ========-->
-    <section class="" style="margin-top: 130px">
+    {{-- <section class="" style="margin-top: 130px">
 
-        {{--  <div class="banner-shape01">
+         <div class="banner-shape01">
              <img src="{{asset($activeTemplateTrue.'images/animation/banner-shape.png')}}" alt="banner" style="display:none;">
         </div>
         <div class="circle-2" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60"
@@ -65,9 +57,9 @@
         <div class="circle-2 five" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60"
              data-paroller-type="foreground" data-paroller-direction="horizontal">
             <img src="{{asset($activeTemplateTrue.'images/animation/15.png')}}" alt="shape">
-        </div>  --}}
+        </div> 
 
-        {{--  <div class="container">
+         <div class="container">
             <div class="banner-area align-items-center">
                 <div class="banner-content">
                     <h1 class="title">{{__(@$bannerCaption->data_values->heading)}}</h1>
@@ -81,8 +73,8 @@
                     </div>
                 </div>
             </div>
-        </div>  --}}
-    </section>
+        </div> 
+    </section> --}}
     <!-- ========Banner-Section Ends Here ========-->
     @endif
     <div class="container">
@@ -189,7 +181,7 @@
     <div class="modal-dialog" role="document">
     <div class="modal-content ">
 
-        <form action="{{route('user.purchases')}}" method="post">
+        <form action="{{route('user.purchases')}}" method="post" id="formin">
         @csrf
         <input type="hidden" name="user_id" value="{{ \Auth::id() }}">
 
@@ -207,11 +199,13 @@
                     @endforeach
                 </select>
                 </div>
+                
+
                 <div class="form-group">
                     <strong>@lang('Pin')</strong>
                     <br/>
-
-                    <input name="password" required class="form-control pincode-input">
+                    <div id="pinwrapper"></div>
+                    <input name="password" type="hidden" id="pinpasswrd" required class="form-control">
 
                     {{--  <input type="password" class="form-control" name="password" value="" maxlength="4" pattern="\d{4}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>  --}}
                 </div>
@@ -220,7 +214,7 @@
         </div>
 
         <div class="modal-footer">
-            <button type="submit" class="btn btn-success" >@lang('Kopen')</button>
+            <button type="submit" id="kopen" class="btn btn-success" >@lang('Kopen')</button>
         </div>
         </form>
 
@@ -256,14 +250,38 @@
 @endsection
 
 @push('script')
-<script src="{{ asset('assets/admin/js/bootstrap-pincode-input.js') }}"></script>
-<script>
+
+<script src="{{ asset('assets/admin/js/jquery.pinlogin.js') }}"></script>
+<script type="text/javascript">
+    $('#kopen').click(function(){
+        $('#formin').submit();
+    });
+    $('#pinwrapper').pinlogin({
+      fields : 4,
+      reset : false,
+      complete : function(pin){
+            $('#pinpasswrd').val(pin);
+            // alert ('Awesome! You entered: ' + pin);
+            
+            // reset the inputs
+            loginpin.reset();
+            
+            // disable the inputs
+            loginpin.disable();
+            
+            // further processing here
+        },
+    });
+</script>
+
+{{-- <script src="{{ asset('assets/admin/js/bootstrap-pincode-input.js') }}"></script> --}}
+{{-- <script>
     $('.pincode-input').pincodeInput({
         inputs:4,
         placeholder:"- - - -",
         hidedigits:true
     });
-</script>
+</script> --}}
 
 <script type="text/javascript">
     $(function () {
