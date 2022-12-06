@@ -35,6 +35,7 @@ class UserController extends Controller
 {
     public function home()
     {
+
         $data['totalInvest'] = Invest::where('user_id', auth()->id())->sum('amount');
         $data['authWallets'] = UserWallet::where('user_id', auth()->id())->get();
         $data['totalWithdraw'] = Withdrawal::where('user_id', Auth::id())->whereIn('status', [1])->sum('amount');

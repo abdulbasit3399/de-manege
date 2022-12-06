@@ -47,7 +47,7 @@ class ResetPasswordController extends Controller
         $email = session('fpass_email');
         $token = session()->has('token') ? session('token') : $token;
         if (PasswordReset::where('token', $token)->where('email', $email)->count() != 1) {
-            $notify[] = ['error', 'Invalid token'];
+            $notify[] = ['error', 'Ongeldige Token'];
             return redirect()->route('user.password.request')->withNotify($notify);
         }
         return view(activeTemplate() . 'user.auth.passwords.reset')->with(
@@ -62,7 +62,7 @@ class ResetPasswordController extends Controller
         $request->validate($this->rules(), $this->validationErrorMessages());
         $reset = PasswordReset::where('token', $request->token)->orderBy('created_at', 'desc')->first();
         if (!$reset) {
-            $notify[] = ['error', 'Invalid Verification Code'];
+            $notify[] = ['error', 'Ongeldige verificatie code'];
             return redirect()->route('user.login')->withNotify($notify);
         }
 
@@ -82,7 +82,7 @@ class ResetPasswordController extends Controller
         ]);
 
 
-        $notify[] = ['success', 'Password Changed'];
+        $notify[] = ['success', 'Wachtwoord veranderd'];
         return redirect()->route('user.login')->withNotify($notify);
     }
 

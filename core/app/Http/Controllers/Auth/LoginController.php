@@ -142,7 +142,7 @@ class LoginController extends Controller
             ]);
             return Socialite::driver('google')->redirect();
         } else {
-            $notify[] = ['danger', 'Opps! Something Wrong'];
+            $notify[] = ['danger', 'Opps! Er is iets mis'];
             return redirect()->route('user.login')->withNotify($notify);
         }
     }
@@ -205,7 +205,7 @@ class LoginController extends Controller
     {
         if ($user->status == 0) {
             $this->guard()->logout();
-            return redirect()->route('user.login')->withErrors(['Your account has been deactivated.']);
+            return redirect()->route('user.login')->withErrors(['Je account is gedeactiveerd.']);
         }
 
 

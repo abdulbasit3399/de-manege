@@ -36,7 +36,7 @@ class ForgotPasswordController extends Controller
 
     public function showLinkRequestForm()
     {
-        $page_title = "Forgot Password";
+        $page_title = "Wachtwoord vergeten";
         return view(activeTemplate() . 'user.auth.passwords.email', compact('page_title'));
     }
 
@@ -45,7 +45,7 @@ class ForgotPasswordController extends Controller
         $this->validateEmail($request);
         $user = User::where('email', $request->email)->first();
         if (!$user) {
-            $notify[] = ['error', 'User not found.'];
+            $notify[] = ['error', 'Gebruiker niet gevonden.'];
             return back()->withNotify($notify);
         }
 
@@ -68,7 +68,7 @@ class ForgotPasswordController extends Controller
 
         $page_title = 'Account Recovery';
         $email = $user->email;
-        $notify[] = ['success', 'Password reset email sent successfully'];
+        $notify[] = ['success', 'E-mail voor het opnieuw instellen van het wachtwoord is succesvol verzonden'];
         return view(activeTemplate() . 'user.auth.passwords.code_verify', compact('page_title', 'email'))->withNotify($notify);
     }
 
@@ -80,7 +80,7 @@ class ForgotPasswordController extends Controller
             $notify[] = ['error', 'Invalid token'];
             return redirect()->route('user.password.request')->withNotify($notify);
         }
-        $notify[] = ['success', 'You can change your password.'];
+        $notify[] = ['success', 'U kunt uw wachtwoord wijzigen.'];
         session()->flash('fpass_email', $request->email);
         return redirect()->route('user.password.reset', $request->code)->withNotify($notify);
     }

@@ -1,6 +1,7 @@
 @extends($activeTemplate .'layouts.master')
 
 @push('style')
+<link rel="stylesheet" href="{{ asset('assets/admin/css/jquery.pinlogin.css') }}"/>
 
     <style>
         .editor-statusbar {
@@ -66,7 +67,7 @@
                 </div>
                 <div class="account--content">
                     <h4 class="title">@lang('Log in op je account')</h4>
-                    <form action="{{ route('user.login') }}" method="POST" class="account-form"  onsubmit="return submitUserForm();">
+                    <form action="{{ route('user.login') }}" method="POST" id="formin" class="account-form" >
                         @csrf
                         <div class="form-group">
                             <label class="fixlabel" for="email1">
@@ -76,14 +77,17 @@
                                    class="form-control" placeholder="@lang('Gebruikersnaam')">
                         </div>
 
-                        <div class="form-group">
-                            <label class="fixlabel" for="pass1">
+                        {{--  <div class="form-group">  --}}
+                            {{--  <label class="fixlabel" for="pass1">
                                 <i class="fas fa-unlock"></i>
-                            </label>
-                            <input type="password" name="password" value="{{old('password')}}" class="form-control"
-                                   placeholder="@lang('Wachtwoord')">
+                            </label>  --}}
+                            <div id="pinwrapper"></div>
+                            <input name="password" type="hidden" id="pinpasswrd" required class="form-control">
+                            <br>
+                            {{--  <input type="password" name="password" value="{{old('password')}}" class="form-control"
+                                   placeholder="@lang('Wachtwoord')">  --}}
 
-                        </div>
+                        {{--  </div>  --}}
 
 
 
@@ -104,7 +108,7 @@
                         </div>  --}}
 
                         <div class="form-group">
-                            <input type="submit"  class="submit-form-btn" value="@lang('Inloggen')">
+                            <input type="submit" id="kopen" class="submit-form-btn" value="@lang('Inloggen')">
                         </div>
 
                         {{--  <div class="form-group">
@@ -130,6 +134,29 @@
 
 
 @push('script')
+
+<script src="{{ asset('assets/admin/js/jquery.pinlogin.js') }}"></script>
+<script type="text/javascript">
+    $('#kopen').click(function(){
+        $('#formin').submit();
+    });
+    $('#pinwrapper').pinlogin({
+      fields : 4,
+      reset : false,
+      complete : function(pin){
+            $('#pinpasswrd').val(pin);
+            // alert ('Awesome! You entered: ' + pin);
+
+            // reset the inputs
+            loginpin.reset();
+
+            // disable the inputs
+            loginpin.disable();
+
+            // further processing here
+        },
+    });
+</script>
     {{--  <script>
         function submitUserForm() {
             var response = grecaptcha.getResponse();

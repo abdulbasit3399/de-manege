@@ -15,7 +15,7 @@
                             <th scope="col">Naam</th>
                             <th scope="col">Gebruikersnaam</th>
                             <th scope="col">Email</th>
-                             <th scope="col">Toestand</th> 
+                             <th scope="col">Toestand</th>
                             <th scope="col">Actie</th>
                         </tr>
                     </thead>
@@ -36,8 +36,8 @@
                             <td><a href="{{ route('admin.users.detail', $user->id) }}">{{ $user->username }}</a></td>
                             <td>{{ $user->email }}</td>
                              <td>
-                                {!! $user->status == 1 ? '<span class="badge badge-success">Actief</span>' : '<span class="badge badge-danger">Verboden</span>' !!}
-                             </td> 
+                                {!! $user->status == 1 ? '<span class="badge badge-success">Actief</span>' : '<span class="badge badge-danger">Inactief</span>' !!}
+                             </td>
                             <td><a href="{{ route('admin.users.detail', $user->id) }}" class="btn btn-rounded btn-primary text-white"><i class="fa fa-fw fa-desktop"></i></a></td>
                         </tr>
                         @empty
