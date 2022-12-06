@@ -42,7 +42,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        $page_title = "Sign In";
+        $page_title = "Inloggen";
         return view(activeTemplate() . 'user.auth.login', compact('page_title'));
     }
 

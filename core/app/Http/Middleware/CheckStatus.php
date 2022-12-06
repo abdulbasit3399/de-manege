@@ -16,9 +16,10 @@ class CheckStatus
      */
     public function handle($request, Closure $next)
     {
+
         if (Auth::check()) {
             $user = Auth()->user();
-            if ($user->status  && $user->ev  && $user->sv  && $user->tv) {
+            if ($user->status) {
                 return $next($request);
             } else {
                 return redirect()->route('user.authorization');
