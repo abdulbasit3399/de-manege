@@ -398,6 +398,9 @@ Route::get('/change-lang/{lang}', 'SiteController@changeLang')->name('lang');
 
 Route::name('home.')->group(function () {
     Route::get('/rules', 'SiteController@rules')->name('rules');
+    Route::get('/error', 'SiteController@error')->name('error');
+    Route::get('/pinerror', 'SiteController@pinerror')->name('pinerror');
+
     Route::get('/info/{id}/{slug?}', 'SiteController@policyInfo')->name('policy');
 
     Route::get('/contact', 'SiteController@contact')->name('contact');

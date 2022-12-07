@@ -26,11 +26,11 @@
                                 </div>
                                 <div class="row mr-1">
                                     <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Name" name="name" value="{{ $method->name }}" />
+                                    <input type="text" class="form-control" placeholder="Naam" name="name" value="{{ $method->name }}" />
                                     </div>
 
                                     <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Price" name="price" value="{{ $method->price }}" />
+                                    <input type="text" class="form-control" placeholder="Prijs" name="price" value="{{ $method->price }}" />
                                     </div>
 
                                     <div class="col-12 mt-4">

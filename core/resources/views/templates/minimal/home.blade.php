@@ -1,6 +1,11 @@
 @extends($activeTemplate .'layouts.master')
 @push('style')
 <link rel="stylesheet" href="{{ asset('assets/admin/css/jquery.pinlogin.css') }}"/>
+<style>
+    body{
+        background-color: black;
+    }
+</style>
 {{-- <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-pincode-input.css') }}"/> --}}
 {{-- <style>
     .pincode-input-container{
@@ -34,7 +39,6 @@
 @endpush
 
 @section('content')
-
     @php
         $bannerCaption = getContent('banner.content',true);
     @endphp
@@ -57,7 +61,7 @@
         <div class="circle-2 five" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60"
              data-paroller-type="foreground" data-paroller-direction="horizontal">
             <img src="{{asset($activeTemplateTrue.'images/animation/15.png')}}" alt="shape">
-        </div> 
+        </div>
 
          <div class="container">
             <div class="banner-area align-items-center">
@@ -73,7 +77,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
     </section> --}}
     <!-- ========Banner-Section Ends Here ========-->
     @endif
@@ -82,12 +86,12 @@
     <div class="row justify-content-center mt-4">
 
         @foreach ($tile as $tl)
-        <div class="card m-3 p-3 identifyingClass" data-price="{{ $tl->price }}" data-name="{{ $tl->name }}" data-id="{{ $tl->id }}" data-toggle="modal" data-target="#depoModal" style="width: 15rem; border-radius: 8%;background:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.2)),url({{ asset('assets/images/gateway/' .$tl->image) }});height: 203px;background-size: cover;background-position: center;">
+        <div class="card m-3 p-3 identifyingClass" data-price="{{ $tl->price }}" data-name="{{ $tl->name }}" data-id="{{ $tl->id }}" data-toggle="modal" data-target="#depoModal" style="border: 2px solid #358f79; width: 15rem; border-radius: 8%;background:linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.2)),url({{ asset('assets/images/gateway/' .$tl->image) }});height: 203px;background-size: cover;background-position: center;">
         {{-- <img src="{{ asset('assets/images/gateway/' .$tl->image) }}" data-price="{{ $tl->price }}" data-name="{{ $tl->name }}" data-id="{{ $tl->id }}" data-toggle="modal" data-target="#depoModal" class="card-img-top identifyingClass" alt="..."> --}}
 
         <div class="text-start p-2" style="height: 100%;">
-            <h6 class="card-subtitle text-white " id="name">{{ $tl->name }}</h6>
-            <p class="card-title text-white" name="price" id="price" style="position: absolute;bottom: 0;background: #1f233a9e;border-radius: 8px;border: 1px solid #358f79;width: 50px;">&nbsp;$&nbsp;{{ $tl->price }}</p>
+            <h6 class="card-subtitle text-white " id="name" style="position: absolute; margin-top:10px; padding:4px; top: 0; background: #1f233a9e;border-radius: 8px;border: 1px solid #358f79;">{{ $tl->name }}</h6>
+            <p class="card-title text-white pl-2" name="price" id="price" style="position: absolute;bottom: 0;background: #1f233a9e;border-radius: 8px;border: 1px solid #358f79;width: 60px;">{{ $general->cur_sym }} {{ formatter_money($tl->price) }}</p>
         </div>
         {{--  <p class="card-text">{{ $tl->description }}</p>  --}}
         {{--  <div class="text-center">
@@ -199,7 +203,7 @@
                     @endforeach
                 </select>
                 </div>
-                
+
 
                 <div class="form-group">
                     <strong>@lang('Pin')</strong>
@@ -262,13 +266,13 @@
       complete : function(pin){
             $('#pinpasswrd').val(pin);
             // alert ('Awesome! You entered: ' + pin);
-            
+
             // reset the inputs
             loginpin.reset();
-            
+
             // disable the inputs
             loginpin.disable();
-            
+
             // further processing here
         },
     });

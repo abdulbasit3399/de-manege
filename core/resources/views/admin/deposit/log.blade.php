@@ -72,11 +72,11 @@
                                     @elseif(request()->routeIs('admin.deposit.list')  || request()->routeIs('admin.deposit.search') || request()->routeIs('admin.users.deposits'))
                                         <td>
                                             @if($deposit->status == 2)
-                                                <span class="badge badge-warning">Pending</span>
+                                                <span class="badge badge-warning">In afwachting</span>
                                             @elseif($deposit->status == 1)
-                                                <span class="badge badge-success">Approved</span>
+                                                <span class="badge badge-success">Goedgekeurd</span>
                                             @elseif($deposit->status == 3)
-                                                <span class="badge badge-danger">Rejected</span>
+                                                <span class="badge badge-danger">Afgekeurd</span>
                                             @endif
                                         </td>
                                     @endif

@@ -19,7 +19,6 @@ use App\User;
 use App\Purchase;
 
 
-
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
@@ -28,7 +27,6 @@ class SiteController extends Controller
 {
     public function home()
     {
-
         $count = Page::where('tempname',activeTemplate())->where('slug','home')->count();
         if($count == 0){
             $in['tempname'] = activeTemplate();
@@ -38,10 +36,11 @@ class SiteController extends Controller
         }
         $tile = Tile::all();
         $user = User::all();
+        $general = GeneralSetting::first();
+
         $data['page_title'] = 'Home';
         $data['sections'] = Page::where('tempname',activeTemplate())->where('slug','home')->firstOrFail();
-        // return view('templates.minimal.home', $data);
-        return view(activeTemplate() . 'home', $data)->with('tile', $tile)->with('user', $user);
+        return view(activeTemplate() . 'home', $data)->with('tile', $tile)->with('user', $user)->with('general', $general);
     }
 
     public function pages($slug)
@@ -292,9 +291,6 @@ class SiteController extends Controller
 
 
         /*
-
-
-
         $request->validate([
             'name' => 'required',
             'phone' => 'required',
@@ -319,6 +315,18 @@ class SiteController extends Controller
         $rules = Frontend::where('data_keys', 'rules.element')->get();
         $ruleheads = Frontend::where('data_keys', 'rules.content')->latest()->first();
         return view(activeTemplate() . 'rules', compact('rules', 'page_title', 'ruleheads'));
+    }
+
+    public function error()
+    {
+        $page_title = "Fout";
+        return view(activeTemplate() . 'error', compact('page_title'));
+    }
+
+    public function pinerror()
+    {
+        $page_title = "Fout";
+        return view(activeTemplate() . 'pinerror', compact('page_title'));
     }
 
     public function policyInfo($id, $slug = null)

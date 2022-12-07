@@ -8,34 +8,34 @@
             <div class="login-area">
                 <div class="login-header-wrapper text-center">
                     <img class="logo" src="{{ get_image(config('constants.logoIcon.path') .'/logo.png') }}" alt="image">
-                    <p class="text-center admin-brand-text">Admin Pannel</p>
+                    <p class="text-center admin-brand-text">Administratie Paneel</p>
                 </div>
                 <form action="{{ route('admin.login') }}" method="POST" class="login-form">
                     @csrf
                     <div class="login-inner-block">
                         <div class="frm-grp">
-                            <label>Username</label>
-                            <input type="text" name="username" value="{{ old('username') }}" placeholder="Enter your username">
+                            <label>Gebruikersnaam</label>
+                            <input type="text" name="username" value="{{ old('username') }}" placeholder="Typ je gebruikersnaam">
                         </div>
                         <div class="frm-grp">
-                            <label>Password</label>
-                            <input type="password" name="password" placeholder="Enter your password">
+                            <label>Wachtwoord</label>
+                            <input type="password" name="password" placeholder="Voer uw wachtwoord in">
                         </div>
                     </div>
                     <div class="d-flex mt-3 justify-content-between">
                         <div class="frm-group">
                             <input type="checkbox" name="remember" id="checkbox">
-                            <label for="checkbox">Remember Me</label>
+                            <label for="checkbox">Onthoud mij</label>
                         </div>
-                        <a href="{{ route('admin.password.reset') }}" class="forget-pass">Forget password?</a>
+                        <a href="{{ route('admin.password.reset') }}" class="forget-pass">Wachtwoord vergeten?</a>
                     </div>
                     <div class="btn-area text-center">
-                    <button type="submit" class="submit-btn">Login now</button>
+                    <button type="submit" class="submit-btn">Log nu in</button>
                     </div>
                 </form>
             </div>
         </div>
-        
+
         </div>
     </div>
 </div>

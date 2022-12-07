@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Rules\FileTypeValidate;
 use App\Tile;
+use App\GeneralSetting;
 
 
 
@@ -15,8 +16,10 @@ class TilesController extends Controller
     {
         $page_title = 'Tegels lijst';
         $empty_message = 'No tile available.';
+        $general = GeneralSetting::first();
+
         $tiles = Tile::latest()->paginate(config('constants.table.default'));
-        return view('admin.tiles.list', compact('page_title', 'empty_message', 'tiles'));
+        return view('admin.tiles.list', compact('page_title','general', 'empty_message', 'tiles'));
     }
 
     public function create()

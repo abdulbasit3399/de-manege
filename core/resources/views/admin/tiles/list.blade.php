@@ -29,7 +29,7 @@
                             <td scope="row">
                                 <div class="media align-items-center">
                                     <div class="media-body">
-                                        <span class="name mb-0">${{ $gateway->price }}</span>
+                                        <span class="name mb-0">{{ $general->cur_sym }}{{ $gateway->price }}</span>
                                     </div>
                                 </div>
 

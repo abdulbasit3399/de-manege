@@ -26,11 +26,11 @@
                                 </div>
                                 <div class="row mr-1">
                                     <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Name" name="name" value="{{ old('name') }}" />
+                                    <input type="text" class="form-control" placeholder="Naam" name="name" value="{{ old('name') }}" />
                                     </div>
 
                                     <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Price" name="price" value="{{ old('price') }}" />
+                                    <input type="text" class="form-control" placeholder="Prijs" name="price" value="{{ old('price') }}" />
                                     </div>
 
                                     <div class="col-12 mt-4">

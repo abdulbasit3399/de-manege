@@ -17,6 +17,7 @@
                             <th scope="col">Email</th>
                              <th scope="col">Toestand</th>
                             <th scope="col">Actie</th>
+                            <th scope="col">Verwijderen</th>
                         </tr>
                     </thead>
                     <tbody class="list">
@@ -39,11 +40,13 @@
                                 {!! $user->status == 1 ? '<span class="badge badge-success">Actief</span>' : '<span class="badge badge-danger">Inactief</span>' !!}
                              </td>
                             <td><a href="{{ route('admin.users.detail', $user->id) }}" class="btn btn-rounded btn-primary text-white"><i class="fa fa-fw fa-desktop"></i></a></td>
+                            <td><a href="{{ route('admin.users.delete', $user->id) }}" class="btn btn-rounded btn-danger"><i class="fa fa-fw fa-trash"></i></a> </td>
                         </tr>
                         @empty
                         <tr>
                             <td class="text-muted text-center" colspan="100%">{{ $empty_message }}</td>
                         </tr>
+
                         @endforelse
                     </tbody>
                 </table>

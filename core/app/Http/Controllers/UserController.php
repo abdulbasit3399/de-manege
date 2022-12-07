@@ -708,13 +708,14 @@ class UserController extends Controller
 
         }else{
         $notify[] = ['error', 'Opwaarderen'];
-        return back()->withNotify($notify);
+        return redirect()->route('home.error')->withNotify($notify);
         }
 
         }else{
             // dd('al');
         $notify[] = ['error', 'Niet correct wachtwoord!'];
-        return back()->withNotify($notify);
+        return redirect()->route('home.pinerror')->withNotify($notify);
+
         }
 
     }
