@@ -35,7 +35,6 @@
         border: none !important;
     }
 </style> --}}
-
 @endpush
 
 @section('content')
@@ -91,7 +90,7 @@
 
         <div class="text-start p-2" style="height: 100%;">
             <h6 class="card-subtitle text-white " id="name" style="position: absolute; margin-top:10px; padding:4px; top: 0; background: #1f233a9e;border-radius: 8px;border: 1px solid #358f79;">{{ $tl->name }}</h6>
-            <p class="card-title text-white pl-2" name="price" id="price" style="position: absolute;bottom: 0;background: #1f233a9e;border-radius: 8px;border: 1px solid #358f79;width: 60px;">{{ $general->cur_sym }} {{ formatter_money($tl->price) }}</p>
+            <p class="card-title text-white pl-2" name="price" id="price" style="position: absolute;bottom: 0;background: #1f233a9e;border-radius: 8px;border: 1px solid #358f79;width: 60px;">{{ $general->cur_sym }} {{ $tl->price }}</p>
         </div>
         {{--  <p class="card-text">{{ $tl->description }}</p>  --}}
         {{--  <div class="text-center">
@@ -188,7 +187,6 @@
         <form action="{{route('user.purchases')}}" method="post" id="formin">
         @csrf
         <input type="hidden" name="user_id" value="{{ \Auth::id() }}">
-
         <input type="hidden" name="amount" id="amount" value="">
         <input type="hidden" name="name" id="nam" value="">
         <input type="hidden" name="tile_id" id="tile_id" value="">
@@ -199,18 +197,24 @@
                 <select id="" name="username" class="form-control select-country @error('username') is-invalid @enderror" required>
                     <option value="">Selecteer</option>
                     @foreach($user as $ur)
+                    @if($ur->status == 1)
                     <option value="{{$ur->username}}">{{$ur->username}}</option>
+                    @endif
                     @endforeach
                 </select>
                 </div>
 
+                <strong>@lang('Quantity')</strong>
+                    <br/>
+                <input type="button" value="-" id="subs" class="minus pull-left col-1 m-1 " style=""/>
+                <input type="text" style="" class="onlyNumber pull-left col-3 mt-1 text-center" id="noOfRoom" value="1" name="quantity" />
+                <input type="button" value="+" id="adds" class="plus col-1 m-1" />
 
                 <div class="form-group">
                     <strong>@lang('Pin')</strong>
                     <br/>
                     <div id="pinwrapper"></div>
                     <input name="password" type="hidden" id="pinpasswrd" required class="form-control">
-
                     {{--  <input type="password" class="form-control" name="password" value="" maxlength="4" pattern="\d{4}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>  --}}
                 </div>
 
@@ -221,7 +225,6 @@
             <button type="submit" id="kopen" class="btn btn-success" >@lang('Kopen')</button>
         </div>
         </form>
-
 
     {{--  <form action="{{route('user.login')}}" method="post">
         @csrf
@@ -246,7 +249,6 @@
         <button type="submit"  class="btn btn-success " >@lang('Login')</button>
         </div>
     </form>  --}}
-
     </div>
     </div>
 </div>
@@ -301,6 +303,43 @@
             $('#tile_id').val(id);
 
         })
+    });
+</script>
+<script>
+    $(function(){
+        $('#adds').on('click',add);
+        $('#subs').on('click',remove);
+      });
+
+      function add(){
+
+        var input = $('#noOfRoom'),
+            value = input.val();
+
+        input.val(++value);
+
+        if(value > 0){
+          $('#subs').removeAttr('disabled');
+        }
+
+      }
+
+      function remove(){
+
+         var input = $('#noOfRoom'),
+             value = input.val();
+
+         if(value > 0){
+           input.val(--value);
+         }else{
+           $('#subs').attr('disabled','disabled');
+        }
+
+      }
+</script>
+<script>
+    $('#depoModal').on('shown.bs.modal', function () {
+        $('#pinwrapper_pinlogin_0').focus();
     });
 </script>
 @endpush

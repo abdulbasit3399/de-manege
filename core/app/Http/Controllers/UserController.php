@@ -665,44 +665,40 @@ class UserController extends Controller
 
     public function purchases(Request $request)
     {
-        // dd($request->all());
         $request->validate([
             'username' => 'required|min:0',
-            'amount' => 'required|min:0',
-
-
+            'amount'   => 'required|min:0',
+            'quantity' => 'required',
         ]);
+        $a = str_replace(',', '.', $request->amount);
+        $am = $a * $request->quantity;
+
         $user = User::find(Auth::id());
         $gnl = GeneralSetting::first();
 
         $plan = Plan::where('id', $request->plan_id)->where('status', 1)->first();
         $usr = User::where('username', $request->username)->first();
 
-        // dump($request->password);
-        // dump($usr->password);
-        // dd(Hash::check($request->password, $usr->password));
-
         if (Hash::check($request->password, $usr->password)) {
-
         $userWallet = UserWallet::where('user_id', $usr->id)->first();
 
-
-        if($userWallet->balance > $request->amount){
-        $new_balance = formatter_money($userWallet->balance - $request->amount);
+        if($userWallet->balance > $am){
+        $new_balance = formatter_money($userWallet->balance - $am);
         $userWallet->balance = $new_balance;
         $userWallet->save();
 
+        $total = str_replace('.', ',', $am);
         Purchase::create([
             'user_id' => $request->user_id,
             'tile_id' => $request->tile_id,
             'name' => $request->name,
             'username' => $request->username,
 
-            'amount' => $request->amount,
+            'amount' => $total,
+            'quantity' => $request->quantity,
 
         ]);
 
-        // dd($request->all());
         $notify[] = ['success', 'Je aankoop is gelukt!'];
         return back()->withNotify($notify);
 
@@ -712,7 +708,6 @@ class UserController extends Controller
         }
 
         }else{
-            // dd('al');
         $notify[] = ['error', 'Niet correct wachtwoord!'];
         return redirect()->route('home.pinerror')->withNotify($notify);
 
