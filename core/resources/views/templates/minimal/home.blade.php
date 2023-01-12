@@ -194,11 +194,11 @@
             <div class="form-group">
                 <div class="form-group">
                 <strong>@lang('Selecteer Gebruikersnaam')</strong>
-                <select id="" name="username" class="form-control select-country @error('username') is-invalid @enderror" required>
+                <select id="" name="usrr_id" class="form-control select-country @error('username') is-invalid @enderror" required>
                     <option value="">Selecteer</option>
                     @foreach($user as $ur)
                     @if($ur->status == 1)
-                    <option value="{{$ur->username}}">{{$ur->username}}</option>
+                    <option value="{{$ur->id}}">{{$ur->username}}</option>
                     @endif
                     @endforeach
                 </select>

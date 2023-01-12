@@ -55,7 +55,7 @@ class UserController extends Controller
 
         // $us = User::where('status', 1)->pluck('username');
         // dump($us);
-        $pur = Purchase::where('user_id', Auth::id())->get();
+        $pur = Purchase::where('username', Auth::id())->get();
         // dd($pur);
 
         $collection['day'] = collect([]);
@@ -668,8 +668,10 @@ class UserController extends Controller
 
     public function purchases(Request $request)
     {
+        // dd($request->all());
         $request->validate([
-            'username' => 'required|min:0',
+            // 'username' => 'required|min:0',
+            'usrr_id' => 'required',
             'amount'   => 'required|min:0',
             'quantity' => 'required',
         ]);
@@ -680,7 +682,7 @@ class UserController extends Controller
         $gnl = GeneralSetting::first();
 
         $plan = Plan::where('id', $request->plan_id)->where('status', 1)->first();
-        $usr = User::where('username', $request->username)->first();
+        $usr = User::where('id', $request->usrr_id)->first();
 
         if (Hash::check($request->password, $usr->password)) {
         $userWallet = UserWallet::where('user_id', $usr->id)->first();
@@ -692,10 +694,10 @@ class UserController extends Controller
 
         $total = str_replace('.', ',', $am);
         Purchase::create([
-            'user_id' => $request->user_id,
+            'username' => $request->usrr_id,
             'tile_id' => $request->tile_id,
             'name' => $request->name,
-            'username' => $request->username,
+            // 'username' => $request->username,
 
             'amount' => $total,
             'quantity' => $request->quantity,
