@@ -185,7 +185,9 @@
                        <tr>
                         <td>{{$purs->id}}</td>
                         <td>{{$purs->name}}</td>
-                        <td>{{number_format($purs->amount,2)}}</td>
+                        <td>{{$general->cur_sym}} {{$purs->amount}}</td>
+
+                        {{--  <td>{{number_format($purs->amount,2)}}</td>  --}}
                         <td>{{ Carbon\Carbon::parse($purs->created_at)->format('d F, y') }}</td>
 
                       {{--  <td>

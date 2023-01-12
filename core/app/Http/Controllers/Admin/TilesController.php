@@ -58,9 +58,12 @@ class TilesController extends Controller
             }
         }
 
+        // dump($request->price);
+        // $b = str_replace(',', '.', $request->price);
+        // dd($b);
         $tile = Tile::create([
 
-            'name' => $request->name,
+            'name'  => $request->name,
             'price' => $request->price,
             'image' => $filename,
 
