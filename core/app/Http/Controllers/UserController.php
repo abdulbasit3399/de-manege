@@ -53,9 +53,9 @@ class UserController extends Controller
         // dd($data['allInvestment_amount']);
         $page_title = 'Dashboard';
 
-        $us = User::where('status', 1)->pluck('username');
+        // $us = User::where('status', 1)->pluck('username');
         // dump($us);
-        $pur = Purchase::whereIn('username', array($us))->get();
+        $pur = Purchase::where('user_id', Auth::id())->get();
         // dd($pur);
 
         $collection['day'] = collect([]);
